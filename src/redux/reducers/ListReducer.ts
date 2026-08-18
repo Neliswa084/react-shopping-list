@@ -1,14 +1,25 @@
 import { createSlice} from '@reduxjs/toolkit'
 
-const ListSlice = createSlice({
+export interface ListState {
+    name: string
+}
+
+const initialState: ListState ={
+      
+    name: ""
+}
+export const listSlice = createSlice({
     name: 'list',
-    initialState:[],
+    initialState,
     reducers: { //redux funtion or method that receives a state and an action as arguments
-        getList : (state , action) => {
-            return action.payload
+        getList : (state) => {
+            state.name = "neliswa"
+            // state.name
+
+           
         }
 
     }
 })
-export const { getList} = ListSlice.actions
-export default ListSlice.reducer 
+export const { getList} = listSlice.actions
+export default listSlice.reducer 
