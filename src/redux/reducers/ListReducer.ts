@@ -11,4 +11,4 @@ const ListSlice = createSlice({
     }
 })
 export const { getList} = ListSlice.actions
-export default ListSlice.reducer
+export default ListSlice.reducer 
