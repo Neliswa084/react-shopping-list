@@ -7,7 +7,7 @@ import { getList} from './redux/reducers/ListReducer'
 
 function App() {
 
-  const name = useSelector((state: RootState) => state.lists.name)
+  const name = useSelector((state: RootState) => state.test.name)
   const dispatch = useDispatch()
   dispatch(getList())
 
