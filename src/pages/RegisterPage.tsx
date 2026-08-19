@@ -17,6 +17,7 @@ export const RegisterPage: React.FC = () => {
 
   const error = useSelector((state: RootState) => state.signUp.error)
   const loading = useSelector((state: RootState) => state.signUp.loading)
+  const users= useSelector((state: RootState) => state.signUp.users)
 
 
   const [name, setName] = useState('')
