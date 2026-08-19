@@ -1,0 +1,9 @@
+.statistic{
+    display: flex;
+    margin-top: 30px;
+    gap: 5px;
+}
+.container{
+    background-color:  #EDE9FE;
+      min-height: 100vh;
+}

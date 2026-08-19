@@ -10,6 +10,9 @@ export const LoginPage: React.FC = () => {
   const navigateToRegister = () =>{
     navigate('/register')
   }
+  const navigateToHome= () =>{
+    navigate('/home')
+  }
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -32,7 +35,7 @@ export const LoginPage: React.FC = () => {
             name="password"
           />
           <p className={styles.forgot}>Forgot password?</p>
-          <Button label="Log in" type="submit" />
+          <Button label="Log in" type="submit" onClick={navigateToHome}/>
           <p className={styles.switchText}>
             Don't have an account?{' '}
             <span className={styles.link} onClick={navigateToRegister}>
