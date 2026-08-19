@@ -13,9 +13,7 @@
   margin-bottom: 24px;
 }
 
-.searchSection {
-  margin-bottom: 24px;
-}
+
 
 .listsHeader {
   display: flex;
@@ -29,7 +27,35 @@
   font-weight: 600;
   color: #111827;
 }
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
 
+.searchWrapper {
+  flex: 1;
+}
+
+.sortBtn {
+  padding: 8px 16px;
+  border: 1px solid #C4B5FD;
+  border-radius: 20px;
+  background: white;
+  color: #6D28D9;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sortBtn:hover {
+  background-color: #EDE9FE;
+}
+
+.addBtn {
+  width: 130px;
+}
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
