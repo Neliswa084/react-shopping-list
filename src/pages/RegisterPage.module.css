@@ -1,0 +1,45 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EDE9FE;
+  padding: 24px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 4px 0;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #6B7280;
+  margin: 0 0 20px 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.switchText {
+  font-size: 13px;
+  color: #6B7280;
+  text-align: center;
+  margin: 0;
+}
+
+.link {
+  color: #7C3AED;
+  cursor: pointer;
+  text-decoration: underline;
+}

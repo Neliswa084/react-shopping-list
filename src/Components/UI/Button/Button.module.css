@@ -1,7 +1,7 @@
 .button {
   width: 100%;
   padding: 12px;
-  background-color: #7C3AED;
+  background-color: #e039f9;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -12,7 +12,7 @@
 }
 
 .button:hover {
-  background-color: #6D28D9;
+  background-color: #a30d87;
 }
 
 .button:disabled {

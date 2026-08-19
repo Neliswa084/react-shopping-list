@@ -1,0 +1,65 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #EDE9FE;
+  padding: 40px 80px;
+  gap: 40px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  flex: 1;
+  align-self: center;
+}
+
+.title {
+  font-size: 52px;
+  font-weight: 800;
+  color: #e039f9;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #6B7280;
+  margin: 0;
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 280px;
+  margin-top: 16px;
+}
+
+.loginLink {
+  background: none;
+  border: none;
+  color: #af26c4;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: left;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 480px;
+  max-height: 70vh;
+  object-fit: contain;
+}
