@@ -28,7 +28,7 @@
 
 .forgot {
   font-size: 13px;
-  color: #7C3AED;
+  color: #af26c4;
   text-align: right;
   margin: 0;
   cursor: pointer;
@@ -42,7 +42,7 @@
 }
 
 .link {
-  color: #7C3AED;
+  color:#af26c4;
   cursor: pointer;
   text-decoration: underline;
 }
