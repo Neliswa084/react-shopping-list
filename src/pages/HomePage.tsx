@@ -13,9 +13,9 @@ export const HomePage = () => {
      <StatisticCard value={3} title='Lists' />
      <StatisticCard value={5} title='Categories' />
       <StatisticCard value={10} title='Items' />
-      <StatisticCard value={4} title='Items' />
+      <StatisticCard value={4} title='Done' />
      </div>
-     <SearchBar   value='value' onChange={() => {}} />
+     <SearchBar value='value' onChange={() => {}} />
   </div>
      </>
   )

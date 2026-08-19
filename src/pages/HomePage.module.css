@@ -1,9 +1,37 @@
-.statistic{
-    display: flex;
-    margin-top: 30px;
-    gap: 5px;
+.container {
+  background-color: #EDE9FE;
+  min-height: 100vh;
 }
-.container{
-    background-color:  #EDE9FE;
-      min-height: 100vh;
+
+.content {
+  padding: 24px;
+}
+
+.statistic {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.searchSection {
+  margin-bottom: 24px;
+}
+
+.listsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.listsTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
 }
