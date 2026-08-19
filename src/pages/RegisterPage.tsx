@@ -17,24 +17,29 @@ export const RegisterPage: React.FC = () => {
 
   const error = useSelector((state: RootState) => state.signUp.error)
   const loading = useSelector((state: RootState) => state.signUp.loading)
-  const users= useSelector((state: RootState) => state.signUp.users)
 
+  const [formData, setFormData] = useState({
+    name: '',
+    surname: '',
+    email: '',
+    cellNumber: '',
+    password: '',
+    confirm: ''
+  })
 
-  const [name, setName] = useState('')
-  const [surname, setSurname] = useState('')
-  const [email, setEmail] = useState('')
-  const [cellNumber, setCellNumber] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirm, setConfirm] = useState('')
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (password !== confirm) {
+    if (formData.password !== formData.confirm) {
       dispatch(registerFailure("Passwords do not match!"))
       return
     }
-    const newUser = { name, surname, email, cellNumber, password }
+    const { confirm, ...newUser } = formData
 
     try {
 
@@ -62,14 +67,14 @@ export const RegisterPage: React.FC = () => {
         {error && <p className={styles.errorMessage} style={{ color: 'red' }}>{error}</p>}
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.row}>
-            <Input label="Name" value={name} onChange={(e) => setName(e.target.value)} name="name" />
-            <Input label="Surname" value={surname} onChange={(e) => setSurname(e.target.value)} name="surname" />
+            <Input label="Name" value={formData.name} onChange={handleChange} name="name" />
+            <Input label="Surname" value={formData.surname} onChange={handleChange} name="surname" />
           </div>
-          <Input label="Email address" value={email} onChange={(e) => setEmail(e.target.value)} name="email" />
-          <Input label="Cell number" value={cellNumber} onChange={(e) => setCellNumber(e.target.value)} name="cellNumber" />
+          <Input label="Email address" value={formData.email} onChange={handleChange} name="email" />
+          <Input label="Cell number" value={formData.cellNumber} onChange={handleChange} name="cellNumber" />
           <div className={styles.row}>
-            <Input label="Password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" />
-            <Input label="Confirm" value={confirm} onChange={(e) => setConfirm(e.target.value)} name="confirm" />
+            <Input label="Password" value={formData.password} onChange={handleChange} name="password" type="password" />
+            <Input label="Confirm" value={formData.confirm} onChange={handleChange} name="confirm" type="password" />
           </div>
           <Button label={loading ? "Creating" : "Create account"} type="submit" />
           <p className={styles.switchText}>
