@@ -1,6 +1,14 @@
 {
-    "users": [],
-    "list":[]
-
-
+  "users": [
+    {
+      "name": "Neliswa",
+      "surname": "Ngcobo",
+      "email": "neliswangcobo141@gmail.com",
+      "cellNumber": "0845884210",
+      "password": "Neliswa084",
+      "id": "Iu8iSVTm16Q"
+    }
+  ],
+  "list": [],
+  "$schema": "./node_modules/json-server/schema.json"
 }
