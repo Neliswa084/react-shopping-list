@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './RegisterPage.module.css'
 import { useNavigate } from 'react-router-dom'
 import { Card } from '../Components/UI/Card/Card'
@@ -6,44 +6,30 @@ import { Input } from '../Components/UI/Input/Input'
 import { Button } from '../Components/UI/Button/Button'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { registerUserThunk } from '../redux/reducers/signUpSlice'
+import { setName, setSurname, setEmail, setPassword, setCellNumber, registerUserThunk } from '../redux/reducers/signUpSlice'
 import type { RootState } from '../redux/store'
 
 export const RegisterPage: React.FC = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const error = useSelector((state: RootState) => state.signUp.error)
+  const name = useSelector((state: RootState) => state.signUp.name)
+  const surname = useSelector((state: RootState) => state.signUp.surname)
+  const email = useSelector((state: RootState) => state.signUp.email)
+  const password = useSelector((state: RootState) => state.signUp.password)
+  const cellNumber = useSelector((state: RootState) => state.signUp.cellNumber)
   const loading = useSelector((state: RootState) => state.signUp.loading)
-
-  const [formData, setFormData] = useState({
-    name: '',
-    surname: '',
-    email: '',
-    cellNumber: '',
-    password: '',
-    confirm: ''
-  })
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const error = useSelector((state: RootState) => state.signUp.error)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    if (formData.password !== formData.confirm) {
-      alert('Passwords do not match!')
-      return
-    }
-    const { confirm, ...userData } = formData
-    const result = await dispatch(registerUserThunk(userData) as any)
+    const result = await dispatch(registerUserThunk({ name, surname, email, password, cellNumber }) as any)
     if (registerUserThunk.fulfilled.match(result)) {
       alert('Registration successful!')
       navigate('/login')
     }
   }
+
   return (
     <div className={styles.container}>
       <Card>
@@ -52,14 +38,13 @@ export const RegisterPage: React.FC = () => {
         {error && <p className={styles.errorMessage} style={{ color: 'red' }}>{error}</p>}
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.row}>
-            <Input label="Name" value={formData.name} onChange={handleChange} name="name" />
-            <Input label="Surname" value={formData.surname} onChange={handleChange} name="surname" />
+            <Input label="Name" value={name} onChange={(e) => dispatch(setName(e.target.value))} name="name" />
+            <Input label="Surname" value={surname} onChange={(e) => dispatch(setSurname(e.target.value))} name="surname" />
           </div>
-          <Input label="Email address" value={formData.email} onChange={handleChange} name="email" />
-          <Input label="Cell number" value={formData.cellNumber} onChange={handleChange} name="cellNumber" />
+          <Input label="Email address" value={email} onChange={(e) => dispatch(setEmail(e.target.value))} name="email" />
+          <Input label="Cell number" value={cellNumber} onChange={(e) => dispatch(setCellNumber(e.target.value))} name="cellNumber" />
           <div className={styles.row}>
-            <Input label="Password" value={formData.password} onChange={handleChange} name="password" type="password" />
-            <Input label="Confirm" value={formData.confirm} onChange={handleChange} name="confirm" type="password" />
+            <Input label="Password" value={password} onChange={(e) => dispatch(setPassword(e.target.value))} name="password" type="password" />
           </div>
           <Button label={loading ? "Creating" : "Create account"} type="submit" />
           <p className={styles.switchText}>
