@@ -4,6 +4,7 @@ import { StatisticCard } from '../Components/UI/StatisticCard/StatisticCard'
 import styles from './HomePage.module.css'
 import { SearchBar } from '../Components/UI/SearchBar/SearchBar'
 import { Button } from '../Components/UI/Button/Button'
+import { ListCard } from '../Components/Lists/ListCard/ListCard'
 
 import type { RootState } from '../redux/store'
 import { useSelector , useDispatch } from 'react-redux'
@@ -42,8 +43,11 @@ export const HomePage = () => {
   </div>
 <h2 className={styles.listsTitle}>My Shopping Lists</h2>
 <div className={styles.grid}>
-  {overlay && modalType === 'addList' && <AddListModal />}
+ 
+  <ListCard />
+
 </div>
+ {overlay && modalType === 'addList' && <AddListModal />}
   
 </div>
   </div>
