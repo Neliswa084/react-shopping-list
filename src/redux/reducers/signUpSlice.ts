@@ -1,5 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import axios from 'axios'
 
 export interface User {
   id?: string
@@ -10,37 +11,68 @@ export interface User {
   cellNumber: string
 }
 
-export interface SignUpState {
-  users: User[]
+export interface SignUpProps extends User {
   loading: boolean
   error: string | null
 }
 
-const initialState: SignUpState = {
-  users: [],
+const initialState: SignUpProps = {
+  name: '',
+  surname: '',
+  email: '',
+  password: '',
+  cellNumber: '',
   loading: false,
-  error:  null
+  error: null
 }
+
+export const registerUserThunk = createAsyncThunk(
+  'signUp/registerUser',
+  async (userData: Omit<User, 'id'>, thunkAPI) => {
+    try {
+      const response = await axios.post('http://localhost:3000/users', userData)
+      return response.data
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.message || 'Server error')
+    }
+  }
+)
 
 export const signUpSlice = createSlice({
   name: 'signUp',
   initialState,
   reducers: {
-     
-    registerStart: (state) => {
-      state.loading = true
-      state.error = null
+    setName: (state, action: PayloadAction<string>) => {
+      state.name = action.payload
     },
-    registerUser: (state, action: PayloadAction<User>) => {
-      state.loading=false
-      state.users.push(action.payload)
+    setSurname: (state, action: PayloadAction<string>) => {
+      state.surname = action.payload
     },
-     registerFailure: (state, action: PayloadAction<string>) => {
-      state.loading = false
-      state.error = action.payload
-    }
+    setEmail: (state, action: PayloadAction<string>) => {
+      state.email = action.payload
+    },
+    setPassword: (state, action: PayloadAction<string>) => {
+      state.password = action.payload
+    },
+    setCellNumber: (state, action: PayloadAction<string>) => {
+      state.cellNumber = action.payload
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(registerUserThunk.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(registerUserThunk.fulfilled, (state) => {
+        state.loading = false
+      })
+      .addCase(registerUserThunk.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload as string
+      })
   }
 })
 
-export const { registerStart, registerUser ,registerFailure} = signUpSlice.actions
+export const { setName, setSurname, setEmail, setPassword, setCellNumber } = signUpSlice.actions
 export default signUpSlice.reducer

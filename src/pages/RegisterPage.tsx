@@ -6,9 +6,7 @@ import { Input } from '../Components/UI/Input/Input'
 import { Button } from '../Components/UI/Button/Button'
 
 import { useDispatch, useSelector } from 'react-redux'
-import axios from 'axios'
-
-import { registerStart, registerUser, registerFailure } from '../redux/reducers/signUpSlice'
+import { registerUserThunk } from '../redux/reducers/signUpSlice'
 import type { RootState } from '../redux/store'
 
 export const RegisterPage: React.FC = () => {
@@ -36,28 +34,15 @@ export const RegisterPage: React.FC = () => {
     e.preventDefault()
 
     if (formData.password !== formData.confirm) {
-      dispatch(registerFailure("Passwords do not match!"))
+      alert('Passwords do not match!')
       return
     }
-    const { confirm, ...newUser } = formData
-
-    try {
-
-      dispatch(registerStart())
-
-
-      const response = await axios.post('http://localhost:3000/users', newUser)
-
-
-      dispatch(registerUser(response.data))
-
+    const { confirm, ...userData } = formData
+    const result = await dispatch(registerUserThunk(userData) as any)
+    if (registerUserThunk.fulfilled.match(result)) {
       alert('Registration successful!')
       navigate('/login')
-    } catch (err: any) {
-
-      dispatch(registerFailure(err.message || 'Server error occurred.'))
     }
-
   }
   return (
     <div className={styles.container}>
