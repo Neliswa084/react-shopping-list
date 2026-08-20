@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Card } from '../Components/UI/Card/Card'
 import { Input } from '../Components/UI/Input/Input'
 import { Button } from '../Components/UI/Button/Button'
-import {loginUser} from '../redux/reducers/loginSlice'
+import {loginUser } from '../redux/reducers/loginSlice'
 import { useDispatch , useSelector} from 'react-redux'
 import type { RootState } from '../redux/store'
 
@@ -28,6 +28,11 @@ export const LoginPage: React.FC = () => {
          alert('Login successful!')
          navigate('/home')
       }
+       if (loginUser.rejected.match(login)) {
+    alert(login.payload as string || 'Invalid email or password')
+  }
+     
+      
     }
 
   const navigateToRegister = () =>{
@@ -42,6 +47,7 @@ export const LoginPage: React.FC = () => {
       <Card>
         <h2 className={styles.title}>Welcome Back</h2>
         <p className={styles.subtitle}>Log in to your ShoppingList account</p>
+        {/* {error && <p className={styles.errorMessage} style={{ color: 'red' }}>{error}</p>} */}
         <form className={styles.form} onSubmit={handleLoginSubmit}>
           <Input
             label="Email address"

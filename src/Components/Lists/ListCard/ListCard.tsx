@@ -20,9 +20,6 @@ export const ListCard: React.FC = () => {
         </button>
       </div>
 
-      {/* Progress Bar */}
-      <ProgressBar checked={2} total={6} />
-
       {/* Expanded content */}
       {expanded && (
         <div className={styles.expanded}>
