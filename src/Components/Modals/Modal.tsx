@@ -22,6 +22,5 @@ export const Modal:React.FC<ModalProps> = ({children,close}) => {
                 
     </div>
     
-   
   )
 }

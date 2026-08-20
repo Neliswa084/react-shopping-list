@@ -4,6 +4,7 @@ import listReducer from './reducers/listSlice'
 import listItemReducer from './reducers/listItemSlice'
 import loginReducer from './reducers/loginSlice'
 import signUpReducer from './reducers/signUpSlice'
+import modalReducer from './reducers/modalSlice'
 
 
 const store = configureStore({
@@ -12,7 +13,8 @@ const store = configureStore({
     list: listReducer,
     listItem: listItemReducer,
     login: loginReducer,
-    signUp: signUpReducer
+    signUp: signUpReducer,
+    modal: modalReducer
   }
 })
 

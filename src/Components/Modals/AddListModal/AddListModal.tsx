@@ -1,0 +1,41 @@
+
+import React, { useState } from 'react'
+import styles from './AddList.module.css'
+import { Modal } from '../Modal'
+import { Input } from '../../UI/Input/Input'
+import { Button } from '../../UI/Button/Button'
+import { useDispatch } from 'react-redux'
+import { closeModal } from '../../../redux/reducers/modalSlice'
+
+export const AddListModal: React.FC = () => {
+  const dispatch = useDispatch()
+  const [listName, setListName] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!listName.trim()) {
+      alert('Please enter a list name')
+      return
+    }
+
+   
+
+    setListName('')
+    dispatch(closeModal())
+  }
+
+  return (
+    <Modal close={() => dispatch(closeModal())}>
+      <h2 className={styles.title}>Add New List</h2>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <Input
+          label="List name"
+          value={listName}
+          onChange={(e) => setListName(e.target.value)}
+          name="listName"
+        />
+        <Button label="Add List" type="submit" />
+      </form>
+    </Modal>
+  )
+}

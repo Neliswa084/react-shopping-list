@@ -5,12 +5,21 @@ import styles from './HomePage.module.css'
 import { SearchBar } from '../Components/UI/SearchBar/SearchBar'
 import { Button } from '../Components/UI/Button/Button'
 
+import type { RootState } from '../redux/store'
+import { useSelector , useDispatch } from 'react-redux'
+import {openModal} from '../redux/reducers/modalSlice'
+import { AddListModal } from '../Components/Modals/AddListModal/AddListModal'
+
 export const HomePage = () => {
+
+  const overlay = useSelector((state: RootState) => state.modal.isModalOpen)
+  const modalType = useSelector((state: RootState) => state.modal.modalType)
+  const dispatch = useDispatch()
   return (
     <>
       <div className={styles.container}>
            <Navbar />
-        <div className={styles.content}>
+      <div className={styles.content}>
   
      <div className={styles.statistic}>
      <StatisticCard value={3} title='Lists' />
@@ -28,12 +37,12 @@ export const HomePage = () => {
   <button className={styles.sortBtn}>Category</button>
   <button className={styles.sortBtn}>Date</button>
   <div className={styles.addBtn}>
-    <Button label="+ Add List" onClick={() => {}} />
+    <Button  label="+ Add List" onClick={() => dispatch(openModal('addList'))} />
   </div>
   </div>
 <h2 className={styles.listsTitle}>My Shopping Lists</h2>
 <div className={styles.grid}>
-  
+  {overlay && modalType === 'addList' && <AddListModal />}
 </div>
   
 </div>

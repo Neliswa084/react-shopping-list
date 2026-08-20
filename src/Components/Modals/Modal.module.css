@@ -1,18 +1,25 @@
-.overlay{
-    position:absolute;
-    top:0;
-    width: 100vw;
-    height: 100vh;
-    z-index:1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0,0,0,0.5);
+.overlay {
+  position: fixed;  
+  top: 0;
+  left: 0;          
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }
-.overlay-child{
-    position: relative;
+.overlay-child {
+  position: relative;
+  background-color: white;
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  max-width: 480px;
+}
 
-}
+
 .close-icon{
     position: absolute;
     height: 30px;
