@@ -18,6 +18,7 @@ export const RegisterPage: React.FC = () => {
   const email = useSelector((state: RootState) => state.signUp.email)
   const password = useSelector((state: RootState) => state.signUp.password)
   const cellNumber = useSelector((state: RootState) => state.signUp.cellNumber)
+  
   const loading = useSelector((state: RootState) => state.signUp.loading)
   const error = useSelector((state: RootState) => state.signUp.error)
 
