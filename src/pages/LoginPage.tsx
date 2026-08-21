@@ -7,6 +7,7 @@ import { Button } from '../Components/UI/Button/Button'
 import {loginUser } from '../redux/reducers/loginSlice'
 import { useDispatch , useSelector} from 'react-redux'
 import type { RootState } from '../redux/store'
+import { setEmail ,setPassword } from '../redux/reducers/signUpSlice'
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate()
@@ -15,8 +16,8 @@ export const LoginPage: React.FC = () => {
    const loading = useSelector((state: RootState) => state.login.loading)
    const error = useSelector ((state: RootState) => state.login.error)
 
-     const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+    const email = useSelector((state: RootState) => state.signUp.email)
+      const password = useSelector((state: RootState) => state.signUp.password)
 
      const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -52,13 +53,13 @@ export const LoginPage: React.FC = () => {
           <Input
             label="Email address"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+             onChange={(e) => dispatch(setEmail(e.target.value))}
             name="email"
           />
           <Input
             label="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => dispatch(setPassword(e.target.value))}
             name="password"
           />
           <p className={styles.forgot}>Forgot password?</p>
