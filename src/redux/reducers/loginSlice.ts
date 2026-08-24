@@ -23,18 +23,18 @@ export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async (credentials: { email: string; password: Required<User>['password'] }, thunkAPI) => {
     try {
-      // Use query filters: /users?email=X&password=Y
+    
       const response = await axios.get<User[]>(
         `http://localhost:3000/users?email=${credentials.email}&password=${credentials.password}`
       )
 
-      // JSON Server returns an array of matching results
+     
       if (response.data.length === 0) {
-        // No user matched the email and password combination
+
         return thunkAPI.rejectWithValue('Invalid email or password')
       }
 
-      // User found! Return the first matching user object
+  
       return response.data[0]
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message || 'Server error occurred during login')
