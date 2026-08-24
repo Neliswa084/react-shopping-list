@@ -4,6 +4,7 @@ import { ProgressBar } from '../ProgressBar/ProgressBar'
 import { ItemRow } from '../../Items/ItemRow/ItemRow'
 import type{ ShoppingList } from '../../../redux/reducers/listSlice'
 import {deleteListThunk} from '../../../redux/reducers/listSlice'
+import { useDispatch } from 'react-redux'
 
 type ListCardProps= {
   list: ShoppingList
@@ -11,6 +12,15 @@ type ListCardProps= {
 
 export const ListCard: React.FC<ListCardProps> = ({list}) => {
   const [expanded, setExpanded] = useState(false)
+
+  const  dispatch = useDispatch()
+   
+
+  const handleDelete = () => {
+  if (window.confirm('Are you sure you want to delete this list?')) {
+  dispatch(deleteListThunk(list.id ?? '') as any);
+  }
+}
 
   return (
     <div className={styles.card}>
@@ -56,7 +66,7 @@ export const ListCard: React.FC<ListCardProps> = ({list}) => {
             <button className={styles.actionBtn}>Add Item</button>
             <button className={styles.actionBtn}>Edit</button>
             <button className={styles.actionBtn}>Share</button>
-            <button className={styles.deleteBtn}>Delete</button>
+            <button className={styles.deleteBtn} onClick={handleDelete}>Delete</button>
           </div>
         </div>
       )}
