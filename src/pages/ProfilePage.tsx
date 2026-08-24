@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import type { RootState } from '../redux/store'
 import { logout } from '../redux/reducers/loginSlice'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+
 
 export const ProfilePage: React.FC = () => {
   const dispatch = useDispatch()
@@ -19,6 +21,7 @@ export const ProfilePage: React.FC = () => {
     dispatch(logout())
     navigate('/')
   }
+
 
   return (
     <div className={styles.container}>

@@ -42,6 +42,19 @@ export const loginUser = createAsyncThunk(
   }
 )
 
+export const fetchUsers = createAsyncThunk (
+  'user/fetchAll',
+  async  (_, thunkAPI) => {
+     try {
+      const response = await axios.get('http://localhost:3000/users')
+      return response.data
+     }
+     catch (error: any){
+      return thunkAPI.rejectWithValue(error.response?.data?.message || error.message || 'Failed to fecth Users')
+     }
+  }
+)
+
 export const loginSlice = createSlice({
   name: 'login',
   initialState,

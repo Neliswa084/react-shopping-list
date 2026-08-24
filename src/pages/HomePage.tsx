@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { Navbar } from '../Components/Navbar/Navbar'
 import { StatisticCard } from '../Components/UI/StatisticCard/StatisticCard'
 import styles from './HomePage.module.css'
@@ -10,6 +11,7 @@ import type { RootState } from '../redux/store'
 import { useSelector , useDispatch } from 'react-redux'
 import {openModal} from '../redux/reducers/modalSlice'
 import { AddListModal } from '../Components/Modals/AddListModal/AddListModal'
+import {fetchListsThunk} from '../redux/reducers/listSlice'
 
 export const HomePage = () => {
 
@@ -18,6 +20,11 @@ export const HomePage = () => {
    const lists = useSelector((state: RootState) => state.list.lists)
 
   const dispatch = useDispatch()
+
+    useEffect(() => {
+    dispatch(fetchListsThunk() as any) 
+  }, [dispatch])
+  
   return (
     <>
       <div className={styles.container}>
@@ -45,9 +52,13 @@ export const HomePage = () => {
   </div>
 <h2 className={styles.listsTitle}>My Shopping Lists</h2>
 <div className={styles.grid}>
+
+
  
-  {/* <ListCard /> */}
   {
+  lists.map((list) => (
+      <ListCard key={list.id} list={list}/>
+  ))
 
   }
  
