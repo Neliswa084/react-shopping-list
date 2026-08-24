@@ -1,6 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { ShoppingItem } from './listItemSlice'
+import axios from 'axios'
+
 
 export interface ShoppingList {
   id: string
@@ -17,6 +19,18 @@ export interface ListState {
 const initialState: ListState = {
   lists: []
 }
+
+export const createListThunk = createAsyncThunk (
+  'list/createList',
+  async (listData: Omit<ShoppingList , 'id'>, thunkAPI) =>{
+    try{
+      const response = await axios.post('http://localhost:3000/list', listData)
+      return response.data 
+    }catch (err: any){
+      return thunkAPI.rejectWithValue(err.message || 'Server error')
+    }
+  }
+)
 
 export const listSlice = createSlice({
   name: 'list',
