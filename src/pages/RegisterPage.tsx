@@ -29,6 +29,9 @@ export const RegisterPage: React.FC = () => {
       alert('Registration successful!')
       navigate('/login')
     }
+    if (registerUserThunk.rejected.match(result)) {
+  alert(result.payload as string)
+}
   }
 
   return (

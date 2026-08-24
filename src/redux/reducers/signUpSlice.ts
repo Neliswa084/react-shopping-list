@@ -30,6 +30,12 @@ export const registerUserThunk = createAsyncThunk(
   'signUp/registerUser',
   async (userData: Omit<User, 'id'>, thunkAPI) => {
     try {
+        const check = await axios.get(`http://localhost:3000/users?email=${userData.email}`)
+      
+      if (check.data.length > 0) {
+        return thunkAPI.rejectWithValue('Email already registered')
+      }
+
       const response = await axios.post('http://localhost:3000/users', userData)
       return response.data
     } catch (err: any) {
