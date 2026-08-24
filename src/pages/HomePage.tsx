@@ -15,7 +15,7 @@ export const HomePage = () => {
 
   const overlay = useSelector((state: RootState) => state.modal.isModalOpen)
   const modalType = useSelector((state: RootState) => state.modal.modalType)
-
+   const lists = useSelector((state: RootState) => state.list.lists)
 
   const dispatch = useDispatch()
   return (
@@ -46,26 +46,11 @@ export const HomePage = () => {
 <h2 className={styles.listsTitle}>My Shopping Lists</h2>
 <div className={styles.grid}>
  
-  <ListCard />
+  {/* <ListCard /> */}
+  {
+
+  }
  
-       
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
  {overlay && modalType === 'addList' && <AddListModal />}
   

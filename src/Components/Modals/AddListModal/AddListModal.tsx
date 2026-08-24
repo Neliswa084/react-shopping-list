@@ -4,10 +4,12 @@ import styles from './AddList.module.css'
 import { Modal } from '../Modal'
 import { Input } from '../../UI/Input/Input'
 import { Button } from '../../UI/Button/Button'
-import { useDispatch, useSelector  } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { closeModal } from '../../../redux/reducers/modalSlice'
-import {createListThunk} from '../../../redux/reducers/listSlice'
+import { createListThunk } from '../../../redux/reducers/listSlice'
 import type { RootState } from '../../../redux/store'
+
+
 
 
 
@@ -15,28 +17,33 @@ import type { RootState } from '../../../redux/store'
 
 export const AddListModal: React.FC = () => {
   const dispatch = useDispatch()
+  const currentUser = useSelector((state: RootState) => state.login.currentUser)
   const [listName, setListName] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-        // const addList = await dispatch(createListThunk({
-        //   userId,
-        //   listName,
-        //   items,
-        //   createdAt
-        // }))
-    
     if (!listName.trim()) {
       alert('Please enter a list name')
       return
+
     }
+  
 
-   
 
-    setListName('')
-    dispatch(closeModal())
+    const result = await dispatch(createListThunk({
+      userId: currentUser?.id ?? '',
+      name: listName,
+      items: [],
+      createdAt: new Date().toISOString()
+    }) as any)
+ 
+    if (createListThunk.fulfilled.match(result)) {
+      setListName('')
+      dispatch(closeModal())
+    }
   }
+
 
   return (
     <Modal close={() => dispatch(closeModal())}>

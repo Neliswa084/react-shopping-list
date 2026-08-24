@@ -65,6 +65,14 @@
       "id": "9EqVCzNg6Vw"
     }
   ],
-  "list": [],
+  "list": [
+    {
+      "userId": "Iu8iSVTm16Q",
+      "name": "Weakly Groceries",
+      "items": [],
+      "createdAt": "2026-08-24T11:38:10.801Z",
+      "id": "kieL4KMYbmk"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
