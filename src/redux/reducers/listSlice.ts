@@ -12,14 +12,33 @@ export interface ShoppingList {
   createdAt: string
 }
 
-export interface ListState {
+export interface ListState  {
   lists: ShoppingList[]
+  loading: boolean
+  error:string | null
 }
 
 const initialState: ListState = {
-  lists: []
-}
+lists:[],
+loading:false,
+error:null
 
+}
+// GET: Fetch all lists
+export const fetchListsThunk = createAsyncThunk(
+  'list/fetchAll',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('http://localhost:3000/list')
+      return response.data
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.response?.data?.message || err.message || 'Failed to fetch lists')
+    }
+  }
+)
+
+
+//Create List Thunk
 export const createListThunk = createAsyncThunk (
   'list/createList',
   async (listData: Omit<ShoppingList , 'id'>, thunkAPI) =>{
@@ -31,18 +50,39 @@ export const createListThunk = createAsyncThunk (
     }
   }
 )
+//EDIT List
+export const editListThunk = createAsyncThunk(
+  'list/editList',
+  async (listData: ShoppingList, thunkAPI) => {
+    try {
+      const response = await axios.put(`$http://localhost:3000/list/${listData.id}`, listData)
+      return response.data // Returns the updated list object
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.response?.data?.message || err.message || 'Failed to update list')
+    }
+  }
+)
+
+// DELETE Remove a list
+export const deleteListThunk = createAsyncThunk(
+  'list/deleteList',
+  async (listId: string, thunkAPI) => {
+    try {
+      await axios.delete(`$http://localhost:3000/list/${listId}`)
+      return listId 
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.response?.data?.message || err.message || 'Failed to delete list')
+    }
+  }
+)
+
+
 
 export const listSlice = createSlice({
   name: 'list',
   initialState,
   reducers: {
     // List actions
-    setLists: (state, action: PayloadAction<ShoppingList[]>) => {
-      state.lists = action.payload
-    },
-    addList: (state, action: PayloadAction<ShoppingList>) => {
-      state.lists.push(action.payload)
-    },
     editList: (state, action: PayloadAction<ShoppingList>) => {
       const index = state.lists.findIndex(list => list.id === action.payload.id)
       if (index !== -1) {
@@ -84,8 +124,8 @@ export const listSlice = createSlice({
         }
       }
     }
-  }
+  },
 })
 
-export const { setLists, addList, editList, deleteList, addItem, editItem, deleteItem, toggleItem } = listSlice.actions
+export const {  editList, deleteList, addItem, editItem, deleteItem, toggleItem } = listSlice.actions
 export default listSlice.reducer

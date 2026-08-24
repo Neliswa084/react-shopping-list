@@ -45,7 +45,27 @@ export const HomePage = () => {
 <div className={styles.grid}>
  
   <ListCard />
+  <ListCard />
+    <ListCard />
+      <ListCard />
+       
+       
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
 </div>
  {overlay && modalType === 'addList' && <AddListModal />}
   

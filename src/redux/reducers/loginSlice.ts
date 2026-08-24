@@ -22,7 +22,7 @@ const initialState: AuthState = {
 export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async (credentials: { email: string; password: Required<User>['password'] }, thunkAPI) => {
-    try {
+    try { 
     
       const response = await axios.get<User[]>(
         `http://localhost:3000/users?email=${credentials.email}&password=${credentials.password}`
