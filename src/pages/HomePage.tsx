@@ -15,6 +15,8 @@ export const HomePage = () => {
 
   const overlay = useSelector((state: RootState) => state.modal.isModalOpen)
   const modalType = useSelector((state: RootState) => state.modal.modalType)
+
+
   const dispatch = useDispatch()
   return (
     <>
@@ -45,9 +47,7 @@ export const HomePage = () => {
 <div className={styles.grid}>
  
   <ListCard />
-  <ListCard />
-    <ListCard />
-      <ListCard />
+ 
        
        
 
@@ -65,7 +65,7 @@ export const HomePage = () => {
 
 
 
-       
+
 </div>
  {overlay && modalType === 'addList' && <AddListModal />}
   

@@ -4,8 +4,14 @@ import styles from './AddList.module.css'
 import { Modal } from '../Modal'
 import { Input } from '../../UI/Input/Input'
 import { Button } from '../../UI/Button/Button'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector  } from 'react-redux'
 import { closeModal } from '../../../redux/reducers/modalSlice'
+import {createListThunk} from '../../../redux/reducers/listSlice'
+import type { RootState } from '../../../redux/store'
+
+
+
+
 
 export const AddListModal: React.FC = () => {
   const dispatch = useDispatch()
@@ -13,6 +19,14 @@ export const AddListModal: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+        // const addList = await dispatch(createListThunk({
+        //   userId,
+        //   listName,
+        //   items,
+        //   createdAt
+        // }))
+    
     if (!listName.trim()) {
       alert('Please enter a list name')
       return

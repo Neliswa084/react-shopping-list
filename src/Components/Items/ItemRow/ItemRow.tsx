@@ -12,16 +12,8 @@ type ItemRowProps = {
   onDelete: () => void
 }
 
-export const ItemRow: React.FC<ItemRowProps> = ({
-  name,
-  quantity,
-  unit,
-  image,
-  checked,
-  onCheck,
-  onEdit,
-  onDelete
-}) => {
+export const ItemRow: React.FC<ItemRowProps> = ({ name, quantity, unit, image,checked, onCheck, onEdit,onDelete}) => {
+  
   return (
     <div className={styles.row}>
       <input

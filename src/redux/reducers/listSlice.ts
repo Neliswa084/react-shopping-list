@@ -5,7 +5,7 @@ import axios from 'axios'
 
 
 export interface ShoppingList {
-  id: string
+  id?: string
   userId: string
   name: string
   items: ShoppingItem[]
@@ -55,7 +55,7 @@ export const editListThunk = createAsyncThunk(
   'list/editList',
   async (listData: ShoppingList, thunkAPI) => {
     try {
-      const response = await axios.put(`$http://localhost:3000/list/${listData.id}`, listData)
+      const response = await axios.put(`http://localhost:3000/list/${listData.id}`, listData)
       return response.data // Returns the updated list object
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.response?.data?.message || err.message || 'Failed to update list')
@@ -68,7 +68,7 @@ export const deleteListThunk = createAsyncThunk(
   'list/deleteList',
   async (listId: string, thunkAPI) => {
     try {
-      await axios.delete(`$http://localhost:3000/list/${listId}`)
+      await axios.delete(`http://localhost:3000/list/${listId}`)
       return listId 
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.response?.data?.message || err.message || 'Failed to delete list')
@@ -82,16 +82,7 @@ export const listSlice = createSlice({
   name: 'list',
   initialState,
   reducers: {
-    // List actions
-    editList: (state, action: PayloadAction<ShoppingList>) => {
-      const index = state.lists.findIndex(list => list.id === action.payload.id)
-      if (index !== -1) {
-        state.lists[index] = action.payload
-      }
-    },
-    deleteList: (state, action: PayloadAction<string>) => {
-      state.lists = state.lists.filter(list => list.id !== action.payload)
-    },
+  
 
     // Item actions 
     addItem: (state, action: PayloadAction<{ listId: string; item: ShoppingItem }>) => {
@@ -125,7 +116,42 @@ export const listSlice = createSlice({
       }
     }
   },
+  extraReducers: (builder) => {
+
+  builder
+    .addCase(fetchListsThunk.pending, (state) => {
+      state.loading = true
+      state.error = null
+    })
+    .addCase(fetchListsThunk.fulfilled, (state, action) => {
+      state.loading = false
+      state.lists = action.payload
+    })
+    .addCase(fetchListsThunk.rejected, (state, action) => {
+      state.loading = false
+      state.error = action.payload as string
+    })
+
+ 
+  builder
+    .addCase(createListThunk.fulfilled, (state, action) => {
+      state.lists.push(action.payload)
+    })
+
+
+  builder
+    .addCase(editListThunk.fulfilled, (state, action) => {
+      const index = state.lists.findIndex(list => list.id === action.payload.id)
+      if (index !== -1) state.lists[index] = action.payload
+    })
+
+
+  builder
+    .addCase(deleteListThunk.fulfilled, (state, action) => {
+      state.lists = state.lists.filter(list => list.id !== action.payload)
+    })
+}
 })
 
-export const {  editList, deleteList, addItem, editItem, deleteItem, toggleItem } = listSlice.actions
+export const {  addItem, editItem, deleteItem, toggleItem } = listSlice.actions
 export default listSlice.reducer
