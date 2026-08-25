@@ -76,7 +76,7 @@ export const deleteListThunk = createAsyncThunk(
   }
 )
 
-// ADD Item — updates the list in JSON server
+// ADD Item 
 export const addItemThunk = createAsyncThunk(
   'list/addItem',
   async (payload: { listId: string; item: ShoppingItem }, thunkAPI) => {
@@ -93,7 +93,7 @@ export const addItemThunk = createAsyncThunk(
   }
 )
 
-// EDIT Item — updates the list in JSON server
+// EDIT Item 
 export const editItemThunk = createAsyncThunk(
   'list/editItem',
   async (payload: { listId: string; item: ShoppingItem }, thunkAPI) => {
@@ -111,7 +111,7 @@ export const editItemThunk = createAsyncThunk(
   }
 )
 
-// DELETE Item — updates the list in JSON server
+// DELETE Item 
 export const deleteItemThunk = createAsyncThunk(
   'list/deleteItem',
   async (payload: { listId: string; itemId: string }, thunkAPI) => {
@@ -128,7 +128,7 @@ export const deleteItemThunk = createAsyncThunk(
   }
 )
 
-// TOGGLE Item checked — updates the list in JSON server
+// TOGGLE Item checked 
 export const toggleItemThunk = createAsyncThunk(
   'list/toggleItem',
   async (payload: { listId: string; itemId: string }, thunkAPI) => {
@@ -155,38 +155,6 @@ export const listSlice = createSlice({
   initialState,
   reducers: {
   
-
-    // Item actions 
-    addItem: (state, action: PayloadAction<{ listId: string; item: ShoppingItem }>) => {
-      const list = state.lists.find(list => list.id === action.payload.listId)
-      if (list) {
-        list.items.push(action.payload.item)
-      }
-    },
-    editItem: (state, action: PayloadAction<{ listId: string; item: ShoppingItem }>) => {
-      const list = state.lists.find(list => list.id === action.payload.listId)
-      if (list) {
-        const index = list.items.findIndex(item => item.id === action.payload.item.id)
-        if (index !== -1) {
-          list.items[index] = action.payload.item
-        }
-      }
-    },
-    deleteItem: (state, action: PayloadAction<{ listId: string; itemId: string }>) => {
-      const list = state.lists.find(list => list.id === action.payload.listId)
-      if (list) {
-        list.items = list.items.filter(item => item.id !== action.payload.itemId)
-      }
-    },
-    toggleItem: (state, action: PayloadAction<{ listId: string; itemId: string }>) => {
-      const list = state.lists.find(list => list.id === action.payload.listId)
-      if (list) {
-        const item = list.items.find(item => item.id === action.payload.itemId)
-        if (item) {
-          item.checked = !item.checked
-        }
-      }
-    }
   },
   extraReducers: (builder) => {
 
@@ -223,7 +191,7 @@ export const listSlice = createSlice({
       state.lists = state.lists.filter(list => list.id !== action.payload)
     })
 
-  // Item thunks — all return the updated list, so replace it in state
+  // Item thunks  all return the updated list, so replace it in state
   const replaceList = (state: ListState, action: { payload: ShoppingList }) => {
     const index = state.lists.findIndex(l => l.id === action.payload.id)
     if (index !== -1) state.lists[index] = action.payload
@@ -236,5 +204,5 @@ export const listSlice = createSlice({
 }
 })
 
-export const {  addItem, editItem, deleteItem, toggleItem } = listSlice.actions
+export const {  } = listSlice.actions
 export default listSlice.reducer

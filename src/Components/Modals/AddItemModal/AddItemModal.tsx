@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './AddItem.module.css'
+import styles from './AddItemModal.module.css'
 import { Modal } from '../Modal'
 import { Input } from '../../UI/Input/Input'
 import { Button } from '../../UI/Button/Button'
