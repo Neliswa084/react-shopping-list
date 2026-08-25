@@ -12,10 +12,12 @@ export type ModalType =
 export interface OpenModalState {
     isModalOpen : boolean
     modalType: ModalType
+    selectedListId: string | null
 }
 const initialState: OpenModalState ={
     isModalOpen: false,
-     modalType: null
+    modalType: null,
+    selectedListId: null
 }
 
 export const modalSlice = createSlice({
@@ -24,14 +26,18 @@ export const modalSlice = createSlice({
   reducers:{
     openModal: (state, action: PayloadAction<ModalType>) =>{
       state.isModalOpen = true
-    state.modalType = action.payload
+      state.modalType = action.payload
     },
-     closeModal: (state) => {
-    state.isModalOpen = false
-    state.modalType = null
+    closeModal: (state) => {
+      state.isModalOpen = false
+      state.modalType = null
+      state.selectedListId = null
+    },
+    setSelectedListId: (state, action: PayloadAction<string | null>) => {
+      state.selectedListId = action.payload
+    }
   }
-  } 
 })
 
-export const {openModal,closeModal} = modalSlice.actions
+export const {openModal, closeModal, setSelectedListId} = modalSlice.actions
 export default modalSlice.reducer

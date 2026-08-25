@@ -101,3 +101,10 @@
 .deleteBtn:hover {
   background-color: #DC2626;
 }
+
+.emptyText {
+  font-size: 13px;
+  color: #9CA3AF;
+  text-align: center;
+  padding: 8px 0;
+}

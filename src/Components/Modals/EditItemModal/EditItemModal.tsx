@@ -1,24 +1,25 @@
 import React, { useState } from 'react'
-import styles from './AddItem.module.css'
+import styles from './EditItem.module.css'
 import { Modal } from '../Modal'
 import { Input } from '../../UI/Input/Input'
 import { Button } from '../../UI/Button/Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { closeModal } from '../../../redux/reducers/modalSlice'
-import { addItemThunk } from '../../../redux/reducers/listSlice'
+import { editItemThunk } from '../../../redux/reducers/listSlice'
 import type { RootState } from '../../../redux/store'
 import type { AppDispatch } from '../../../redux/store'
 
 const CATEGORIES = ['Meat', 'Beverages', 'Dairy', 'Vegetables', 'Fruits', 'Snacks', 'Cleaning', 'Other']
 
-export const AddItemModal: React.FC = () => {
+export const EditItemModal: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>()
   const selectedListId = useSelector((state: RootState) => state.modal.selectedListId)
+  const selectedItem = useSelector((state: RootState) => state.listItem.selectedItem)
 
-  const [name, setName] = useState('')
-  const [quantity, setQuantity] = useState(1)
-  const [category, setCategory] = useState('Other')
-  const [notes, setNotes] = useState('')
+  const [name, setName] = useState(selectedItem?.name ?? '')
+  const [quantity, setQuantity] = useState(selectedItem?.quantity ?? 1)
+  const [category, setCategory] = useState(selectedItem?.category ?? 'Other')
+  const [notes, setNotes] = useState(selectedItem?.notes ?? '')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -26,27 +27,25 @@ export const AddItemModal: React.FC = () => {
       alert('Please enter an item name')
       return
     }
-    if (!selectedListId) return
+    if (!selectedItem || !selectedListId) return
 
-    const newItem = {
-      id: Date.now().toString(),
+    const updatedItem = {
+      ...selectedItem,
       name: name.trim(),
       quantity,
       category,
-      notes: notes.trim(),
-      checked: false,
-      createdAt: new Date().toISOString()
+      notes: notes.trim()
     }
 
-    const result = await dispatch(addItemThunk({ listId: selectedListId, item: newItem }))
-    if (addItemThunk.fulfilled.match(result)) {
+    const result = await dispatch(editItemThunk({ listId: selectedListId, item: updatedItem }))
+    if (editItemThunk.fulfilled.match(result)) {
       dispatch(closeModal())
     }
   }
 
   return (
     <Modal close={() => dispatch(closeModal())}>
-      <h2 className={styles.title}>Add Item</h2>
+      <h2 className={styles.title}>Edit Item</h2>
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input
           label="Item name"
@@ -82,7 +81,7 @@ export const AddItemModal: React.FC = () => {
           onChange={(e) => setNotes(e.target.value)}
           name="notes"
         />
-        <Button label="Add Item" type="submit" />
+        <Button label="Save Changes" type="submit" />
       </form>
     </Modal>
   )

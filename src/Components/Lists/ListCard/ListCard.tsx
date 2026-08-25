@@ -2,25 +2,55 @@ import React, { useState } from 'react'
 import styles from './ListCard.module.css'
 import { ProgressBar } from '../ProgressBar/ProgressBar'
 import { ItemRow } from '../../Items/ItemRow/ItemRow'
-import type{ ShoppingList } from '../../../redux/reducers/listSlice'
-import {deleteListThunk} from '../../../redux/reducers/listSlice'
+import type { ShoppingList } from '../../../redux/reducers/listSlice'
+import { deleteListThunk, deleteItemThunk, toggleItemThunk } from '../../../redux/reducers/listSlice'
+import { openModal, setSelectedListId } from '../../../redux/reducers/modalSlice'
+import { setSelectedItem } from '../../../redux/reducers/listItemSlice'
 import { useDispatch } from 'react-redux'
+import type { AppDispatch } from '../../../redux/store'
+import type { ShoppingItem } from '../../../redux/reducers/listItemSlice'
 
-type ListCardProps= {
+type ListCardProps = {
   list: ShoppingList
 }
 
-export const ListCard: React.FC<ListCardProps> = ({list}) => {
+export const ListCard: React.FC<ListCardProps> = ({ list }) => {
   const [expanded, setExpanded] = useState(false)
+  const dispatch = useDispatch<AppDispatch>()
 
-  const  dispatch = useDispatch()
-   
+  const checkedCount = list.items.filter(item => item.checked).length
 
-  const handleDelete = () => {
-  if (window.confirm('Are you sure you want to delete this list?')) {
-  dispatch(deleteListThunk(list.id ?? '') as any);
+  const handleDeleteList = () => {
+    if (window.confirm('Are you sure you want to delete this list?')) {
+      dispatch(deleteListThunk(list.id ?? ''))
+    }
   }
-}
+
+  const handleEditList = () => {
+    dispatch(setSelectedListId(list.id ?? ''))
+    dispatch(openModal('editList'))
+  }
+
+  const handleAddItem = () => {
+    dispatch(setSelectedListId(list.id ?? ''))
+    dispatch(openModal('addItem'))
+  }
+
+  const handleEditItem = (item: ShoppingItem) => {
+    dispatch(setSelectedListId(list.id ?? ''))
+    dispatch(setSelectedItem(item))
+    dispatch(openModal('editItem'))
+  }
+
+  const handleDeleteItem = (itemId: string) => {
+    if (window.confirm('Delete this item?')) {
+      dispatch(deleteItemThunk({ listId: list.id ?? '', itemId }))
+    }
+  }
+
+  const handleToggleItem = (itemId: string) => {
+    dispatch(toggleItemThunk({ listId: list.id ?? '', itemId }))
+  }
 
   return (
     <div className={styles.card}>
@@ -39,34 +69,30 @@ export const ListCard: React.FC<ListCardProps> = ({list}) => {
       {/* Expanded content */}
       {expanded && (
         <div className={styles.expanded}>
-          {/* <p className={styles.category}>Meat</p>
-          <ItemRow name="Borewors" quantity={1} unit="kg" checked={false} onCheck={() => {}} onEdit={() => {}} onDelete={() => {}} />
-          <ItemRow name="Chicken" quantity={2} unit="kg" checked={false} onCheck={() => {}} onEdit={() => {}} onDelete={() => {}} />
+          <ProgressBar checked={checkedCount} total={list.items.length} />
 
-          <p className={styles.category}>Beverages</p>
-          <ItemRow name="Cold Drinks" quantity={2} unit="L" checked={false} onCheck={() => {}} onEdit={() => {}} onDelete={() => {}} />
-          <ItemRow name="Juice" quantity={6} unit="" checked={false} onCheck={() => {}} onEdit={() => {}} onDelete={() => {}} /> */}
+          {list.items.length === 0 && (
+            <p className={styles.emptyText}>No items yet. Add one!</p>
+          )}
 
-          {
-            list.items.map((item) => (
-              <ItemRow 
+          {list.items.map((item) => (
+            <ItemRow
               key={item.id}
               name={item.name}
               quantity={item.quantity}
               image={item.image}
               checked={item.checked}
-              onCheck={() => {}}
-              onEdit={() => {}} 
-              onDelete={() => {}} 
-              />
-            ))
-          }
+              onCheck={() => handleToggleItem(item.id)}
+              onEdit={() => handleEditItem(item)}
+              onDelete={() => handleDeleteItem(item.id)}
+            />
+          ))}
 
           <div className={styles.actions}>
-            <button className={styles.actionBtn}>Add Item</button>
-            <button className={styles.actionBtn}>Edit</button>
+            <button className={styles.actionBtn} onClick={handleAddItem}>Add Item</button>
+            <button className={styles.actionBtn} onClick={handleEditList}>Edit</button>
             <button className={styles.actionBtn}>Share</button>
-            <button className={styles.deleteBtn} onClick={handleDelete}>Delete</button>
+            <button className={styles.deleteBtn} onClick={handleDeleteList}>Delete</button>
           </div>
         </div>
       )}

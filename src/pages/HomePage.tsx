@@ -11,6 +11,9 @@ import type { RootState } from '../redux/store'
 import { useSelector , useDispatch } from 'react-redux'
 import {openModal} from '../redux/reducers/modalSlice'
 import { AddListModal } from '../Components/Modals/AddListModal/AddListModal'
+import { AddItemModal } from '../Components/Modals/AddItemModal/AddItemModal'
+import { EditListModal } from '../Components/Modals/EditListModal/EditListModal'
+import { EditItemModal } from '../Components/Modals/EditItemModal/EditItemModal'
 import {fetchListsThunk} from '../redux/reducers/listSlice'
 
 export const HomePage = () => {
@@ -67,6 +70,9 @@ useEffect(() => {
  
 </div>
  {overlay && modalType === 'addList' && <AddListModal />}
+ {overlay && modalType === 'addItem' && <AddItemModal />}
+ {overlay && modalType === 'editList' && <EditListModal />}
+ {overlay && modalType === 'editItem' && <EditItemModal />}
   
 </div>
   </div>

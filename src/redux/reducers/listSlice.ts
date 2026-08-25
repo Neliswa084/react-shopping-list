@@ -69,9 +69,81 @@ export const deleteListThunk = createAsyncThunk(
   async (listId: string, thunkAPI) => {
     try {
       await axios.delete(`http://localhost:3000/list/${listId}`)
-      return listId 
+      return listId
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.response?.data?.message || err.message || 'Failed to delete list')
+    }
+  }
+)
+
+// ADD Item — updates the list in JSON server
+export const addItemThunk = createAsyncThunk(
+  'list/addItem',
+  async (payload: { listId: string; item: ShoppingItem }, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState() as { list: ListState }
+      const list = state.list.lists.find(l => l.id === payload.listId)
+      if (!list) return thunkAPI.rejectWithValue('List not found')
+      const updatedList = { ...list, items: [...list.items, payload.item] }
+      const response = await axios.put(`http://localhost:3000/list/${payload.listId}`, updatedList)
+      return response.data
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.message || 'Failed to add item')
+    }
+  }
+)
+
+// EDIT Item — updates the list in JSON server
+export const editItemThunk = createAsyncThunk(
+  'list/editItem',
+  async (payload: { listId: string; item: ShoppingItem }, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState() as { list: ListState }
+      const list = state.list.lists.find(l => l.id === payload.listId)
+      if (!list) return thunkAPI.rejectWithValue('List not found')
+      const updatedItems = list.items.map(i => i.id === payload.item.id ? payload.item : i)
+      const updatedList = { ...list, items: updatedItems }
+      const response = await axios.put(`http://localhost:3000/list/${payload.listId}`, updatedList)
+      return response.data
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.message || 'Failed to edit item')
+    }
+  }
+)
+
+// DELETE Item — updates the list in JSON server
+export const deleteItemThunk = createAsyncThunk(
+  'list/deleteItem',
+  async (payload: { listId: string; itemId: string }, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState() as { list: ListState }
+      const list = state.list.lists.find(l => l.id === payload.listId)
+      if (!list) return thunkAPI.rejectWithValue('List not found')
+      const updatedList = { ...list, items: list.items.filter(i => i.id !== payload.itemId) }
+      const response = await axios.put(`http://localhost:3000/list/${payload.listId}`, updatedList)
+      return response.data
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.message || 'Failed to delete item')
+    }
+  }
+)
+
+// TOGGLE Item checked — updates the list in JSON server
+export const toggleItemThunk = createAsyncThunk(
+  'list/toggleItem',
+  async (payload: { listId: string; itemId: string }, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState() as { list: ListState }
+      const list = state.list.lists.find(l => l.id === payload.listId)
+      if (!list) return thunkAPI.rejectWithValue('List not found')
+      const updatedItems = list.items.map(i =>
+        i.id === payload.itemId ? { ...i, checked: !i.checked } : i
+      )
+      const updatedList = { ...list, items: updatedItems }
+      const response = await axios.put(`http://localhost:3000/list/${payload.listId}`, updatedList)
+      return response.data
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.message || 'Failed to toggle item')
     }
   }
 )
@@ -150,6 +222,17 @@ export const listSlice = createSlice({
     .addCase(deleteListThunk.fulfilled, (state, action) => {
       state.lists = state.lists.filter(list => list.id !== action.payload)
     })
+
+  // Item thunks — all return the updated list, so replace it in state
+  const replaceList = (state: ListState, action: { payload: ShoppingList }) => {
+    const index = state.lists.findIndex(l => l.id === action.payload.id)
+    if (index !== -1) state.lists[index] = action.payload
+  }
+
+  builder.addCase(addItemThunk.fulfilled, replaceList)
+  builder.addCase(editItemThunk.fulfilled, replaceList)
+  builder.addCase(deleteItemThunk.fulfilled, replaceList)
+  builder.addCase(toggleItemThunk.fulfilled, replaceList)
 }
 })
 
