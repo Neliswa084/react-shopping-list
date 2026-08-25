@@ -10,9 +10,10 @@ export interface AuthState {
   error: string | null
 
 }
+const savedUser = localStorage.getItem('currentUser')
 
 const initialState: AuthState = {
-  currentUser: null,
+  currentUser: savedUser ? JSON.parse(savedUser) : null,
   isLoggedIn: false,
     loading: false,
    error: null,
@@ -67,6 +68,7 @@ export const loginSlice = createSlice({
       state.currentUser = null
       state.isLoggedIn = false
       state.error = null
+       localStorage.removeItem('currentUser')
     },
   },
    extraReducers: (builder) => {
@@ -78,6 +80,7 @@ export const loginSlice = createSlice({
      state.loading = false
         state.currentUser = action.payload
         state.isLoggedIn = true
+        localStorage.setItem('currentUser', JSON.stringify(action.payload))
     })
     .addCase(loginUser.rejected, (state, action) => {
         state.loading = false
