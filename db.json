@@ -69,14 +69,61 @@
     {
       "userId": "3vd3CqY28Gs",
       "name": "Weakly Groceries",
-      "items": [],
+      "items": [
+        {
+          "id": "1787648807879",
+          "name": "Chicken",
+          "quantity": 1,
+          "category": "Meat",
+          "notes": "Shoprite",
+          "checked": false,
+          "createdAt": "2026-08-25T09:06:47.879Z"
+        },
+        {
+          "id": "1787648823982",
+          "name": "Wors",
+          "quantity": 1,
+          "category": "Meat",
+          "notes": "Shoprite",
+          "checked": false,
+          "createdAt": "2026-08-25T09:07:03.982Z"
+        },
+        {
+          "id": "1787649255965",
+          "name": "Banana",
+          "quantity": 2,
+          "category": "Fruits",
+          "notes": "Shoprite",
+          "checked": false,
+          "createdAt": "2026-08-25T09:14:15.965Z"
+        },
+        {
+          "id": "1787649285453",
+          "name": "Apple",
+          "quantity": 1,
+          "category": "Fruits",
+          "notes": "Shoprite",
+          "checked": false,
+          "createdAt": "2026-08-25T09:14:45.453Z"
+        }
+      ],
       "createdAt": "2026-08-25T04:35:00.766Z",
       "id": "Aps_IKWzgmg"
     },
     {
       "userId": "Iu8iSVTm16Q",
       "name": "Neliswa 25th Birthday",
-      "items": [],
+      "items": [
+        {
+          "id": "1787648585560",
+          "name": "Banana",
+          "quantity": 2,
+          "category": "Fruits",
+          "notes": "Shoprite",
+          "checked": false,
+          "createdAt": "2026-08-25T09:03:05.560Z"
+        }
+      ],
       "createdAt": "2026-08-25T04:36:13.173Z",
       "id": "eK9ARRkafBc"
     }
