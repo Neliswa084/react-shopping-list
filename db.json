@@ -72,13 +72,6 @@
       "items": [],
       "createdAt": "2026-08-25T04:35:00.766Z",
       "id": "Aps_IKWzgmg"
-    },
-    {
-      "userId": "Iu8iSVTm16Q",
-      "name": "Neliswa 25th Birthday",
-      "items": [],
-      "createdAt": "2026-08-25T04:36:13.173Z",
-      "id": "eK9ARRkafBc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
