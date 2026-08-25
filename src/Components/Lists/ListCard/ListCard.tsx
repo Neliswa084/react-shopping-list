@@ -59,7 +59,7 @@ export const ListCard: React.FC<ListCardProps> = ({ list }) => {
         <div className={styles.avatar} />
         <div className={styles.info}>
           <h3 className={styles.name}>{list.name}</h3>
-          <p className={styles.subtitle}>{list.items.length} Items</p>
+          <p className={styles.subtitle}>{new Set(list.items.map(i => i.category)).size} Categories {list.items.length} Items </p>
         </div>
         <button className={styles.arrow} onClick={() => setExpanded(!expanded)}>
           {expanded ? '▲' : '▼'}
@@ -75,18 +75,27 @@ export const ListCard: React.FC<ListCardProps> = ({ list }) => {
             <p className={styles.emptyText}>No items yet. Add one!</p>
           )}
 
-          {list.items.map((item) => (
-            <ItemRow
-              key={item.id}
-              name={item.name}
-              quantity={item.quantity}
-              image={item.image}
-              checked={item.checked}
-              onCheck={() => handleToggleItem(item.id)}
-              onEdit={() => handleEditItem(item)}
-              onDelete={() => handleDeleteItem(item.id)}
-            />
-          ))}
+
+{[...new Set(list.items.map(i => i.category))].map(category => (
+  <div key={category}>
+    <p className={styles.category}>{category}</p>
+    {list.items
+      .filter(item => item.category === category)
+      .map(item => (
+        <ItemRow
+          key={item.id}
+          name={item.name}
+          quantity={item.quantity}
+          image={item.image}
+          checked={item.checked}
+          onCheck={() => handleToggleItem(item.id)}
+          onEdit={() => handleEditItem(item)}
+          onDelete={() => handleDeleteItem(item.id)}
+        />
+      ))
+    }
+  </div>
+))}
 
           <div className={styles.actions}>
             <button className={styles.actionBtn} onClick={handleAddItem}>Add Item</button>
