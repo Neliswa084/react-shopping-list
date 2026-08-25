@@ -76,7 +76,7 @@ export const deleteListThunk = createAsyncThunk(
   }
 )
 
-// ADD Item 
+// ADD Item — updates the list in JSON server
 export const addItemThunk = createAsyncThunk(
   'list/addItem',
   async (payload: { listId: string; item: ShoppingItem }, thunkAPI) => {
@@ -93,7 +93,7 @@ export const addItemThunk = createAsyncThunk(
   }
 )
 
-// EDIT Item 
+// EDIT Item — updates the list in JSON server
 export const editItemThunk = createAsyncThunk(
   'list/editItem',
   async (payload: { listId: string; item: ShoppingItem }, thunkAPI) => {
@@ -111,7 +111,7 @@ export const editItemThunk = createAsyncThunk(
   }
 )
 
-// DELETE Item 
+// DELETE Item — updates the list in JSON server
 export const deleteItemThunk = createAsyncThunk(
   'list/deleteItem',
   async (payload: { listId: string; itemId: string }, thunkAPI) => {
@@ -128,7 +128,7 @@ export const deleteItemThunk = createAsyncThunk(
   }
 )
 
-// TOGGLE Item checked 
+// TOGGLE Item checked — updates the list in JSON server
 export const toggleItemThunk = createAsyncThunk(
   'list/toggleItem',
   async (payload: { listId: string; itemId: string }, thunkAPI) => {
@@ -155,6 +155,7 @@ export const listSlice = createSlice({
   initialState,
   reducers: {
   
+
   },
   extraReducers: (builder) => {
 
@@ -191,7 +192,7 @@ export const listSlice = createSlice({
       state.lists = state.lists.filter(list => list.id !== action.payload)
     })
 
-  // Item thunks  all return the updated list, so replace it in state
+  // Item thunks — all return the updated list, so replace it in state
   const replaceList = (state: ListState, action: { payload: ShoppingList }) => {
     const index = state.lists.findIndex(l => l.id === action.payload.id)
     if (index !== -1) state.lists[index] = action.payload
@@ -204,5 +205,5 @@ export const listSlice = createSlice({
 }
 })
 
-export const {  } = listSlice.actions
+export const {   } = listSlice.actions
 export default listSlice.reducer

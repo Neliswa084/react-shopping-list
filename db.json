@@ -111,11 +111,56 @@
       "id": "Aps_IKWzgmg"
     },
     {
+      "userId": "3vd3CqY28Gs",
+      "name": "Shopping List",
+      "items": [
+        {
+          "id": "1787662203548",
+          "name": "Yoghurt",
+          "quantity": 1,
+          "category": "Dairy",
+          "notes": "I will buy it on shoprite",
+          "checked": false,
+          "createdAt": "2026-08-25T12:50:03.548Z"
+        },
+        {
+          "id": "1787662233869",
+          "name": "Banana",
+          "quantity": 5,
+          "category": "Other",
+          "notes": "Cha aziveli",
+          "checked": false,
+          "createdAt": "2026-08-25T12:50:33.869Z"
+        }
+      ],
+      "createdAt": "2026-08-25T12:49:15.526Z",
+      "id": "LhxvJ5ElnYA"
+    },
+    {
       "userId": "Iu8iSVTm16Q",
-      "name": "Neliswa 25th Birthday",
-      "items": [],
-      "createdAt": "2026-08-25T04:36:13.173Z",
-      "id": "eK9ARRkafBc"
+      "name": "Kanjani?",
+      "items": [
+        {
+          "id": "1787666075209",
+          "name": "Apple",
+          "quantity": 1,
+          "category": "Snacks",
+          "notes": "Shoprite",
+          "checked": false,
+          "createdAt": "2026-08-25T13:54:35.209Z"
+        },
+        {
+          "id": "1787666094460",
+          "name": "Banana",
+          "quantity": 2,
+          "category": "Fruits",
+          "notes": "fresh",
+          "checked": false,
+          "createdAt": "2026-08-25T13:54:54.460Z"
+        }
+      ],
+      "createdAt": "2026-08-25T12:53:45.797Z",
+      "id": "HOXOlzoscIM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
