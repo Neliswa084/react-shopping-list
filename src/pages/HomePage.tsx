@@ -18,12 +18,15 @@ export const HomePage = () => {
   const overlay = useSelector((state: RootState) => state.modal.isModalOpen)
   const modalType = useSelector((state: RootState) => state.modal.modalType)
    const lists = useSelector((state: RootState) => state.list.lists)
+   const currentUser = useSelector((state: RootState) => state.login.currentUser)
 
   const dispatch = useDispatch()
 
-    useEffect(() => {
-    dispatch(fetchListsThunk() as any) 
-  }, [dispatch])
+useEffect(() => {
+  if (currentUser?.id) {
+    dispatch(fetchListsThunk(currentUser.id) as any)
+  }
+}, [])
   
   return (
     <>

@@ -55,6 +55,20 @@ export const fetchUsers = createAsyncThunk (
      }
   }
 )
+export const editUserThunk = createAsyncThunk(
+  'auth/editUser',
+  async (userData: User, thunkAPI) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:3000/users/${userData.id}`,
+        userData
+      )
+      return response.data
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message || 'Failed to update user')
+    }
+  }
+)
 
 export const loginSlice = createSlice({
   name: 'login',
@@ -82,6 +96,10 @@ export const loginSlice = createSlice({
         state.isLoggedIn = true
         localStorage.setItem('currentUser', JSON.stringify(action.payload))
     })
+    .addCase(editUserThunk.fulfilled, (state, action) => {
+  state.currentUser = action.payload
+  localStorage.setItem('currentUser', JSON.stringify(action.payload))
+})
     .addCase(loginUser.rejected, (state, action) => {
         state.loading = false
         state.error = action.payload as string

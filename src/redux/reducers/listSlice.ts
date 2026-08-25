@@ -27,12 +27,12 @@ error:null
 // GET: Fetch all lists
 export const fetchListsThunk = createAsyncThunk(
   'list/fetchAll',
-  async (_, thunkAPI) => {
+  async (userId: string, thunkAPI) => {
     try {
-      const response = await axios.get('http://localhost:3000/list')
+      const response = await axios.get(`http://localhost:3000/list?userId=${userId}`)
       return response.data
     } catch (err: any) {
-      return thunkAPI.rejectWithValue(err.response?.data?.message || err.message || 'Failed to fetch lists')
+      return thunkAPI.rejectWithValue(err.message || 'Failed to fetch lists')
     }
   }
 )

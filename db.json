@@ -67,32 +67,18 @@
   ],
   "list": [
     {
-      "userId": "",
+      "userId": "3vd3CqY28Gs",
       "name": "Weakly Groceries",
       "items": [],
-      "createdAt": "2026-08-24T12:23:02.024Z",
-      "id": "sspfDDDCJlY"
+      "createdAt": "2026-08-25T04:35:00.766Z",
+      "id": "Aps_IKWzgmg"
     },
     {
-      "userId": "",
+      "userId": "Iu8iSVTm16Q",
       "name": "Neliswa 25th Birthday",
       "items": [],
-      "createdAt": "2026-08-24T12:23:25.488Z",
-      "id": "PLah8iVQB4w"
-    },
-    {
-      "userId": "",
-      "name": "Braai supplies",
-      "items": [],
-      "createdAt": "2026-08-24T12:33:29.247Z",
-      "id": "k4tBeRFJc20"
-    },
-    {
-      "userId": "",
-      "name": "Lobola List",
-      "items": [],
-      "createdAt": "2026-08-24T12:44:16.087Z",
-      "id": "oyEuUH1-GTg"
+      "createdAt": "2026-08-25T04:36:13.173Z",
+      "id": "eK9ARRkafBc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
