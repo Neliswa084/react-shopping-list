@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useEffect } from 'react'
 import { Navbar } from '../Components/Navbar/Navbar'
 import { StatisticCard } from '../Components/UI/StatisticCard/StatisticCard'

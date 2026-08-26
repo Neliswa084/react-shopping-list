@@ -1,5 +1,4 @@
 import { createSlice , createAsyncThunk  } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
 import type { User } from './signUpSlice'
 import axios from 'axios'
 

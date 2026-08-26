@@ -10,11 +10,6 @@ import { createListThunk } from '../../../redux/reducers/listSlice'
 import type { RootState } from '../../../redux/store'
 
 
-
-
-
-
-
 export const AddListModal: React.FC = () => {
   const dispatch = useDispatch()
   const currentUser = useSelector((state: RootState) => state.login.currentUser)
@@ -43,7 +38,6 @@ export const AddListModal: React.FC = () => {
       dispatch(closeModal())
     }
   }
-
 
   return (
     <Modal close={() => dispatch(closeModal())}>

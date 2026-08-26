@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './LoginPage.module.css'
 import { useNavigate } from 'react-router-dom'
 import { Card } from '../Components/UI/Card/Card'
@@ -13,8 +13,7 @@ export const LoginPage: React.FC = () => {
   const navigate = useNavigate()
    const dispatch = useDispatch<any>()
 
-   const loading = useSelector((state: RootState) => state.login.loading)
-   const error = useSelector ((state: RootState) => state.login.error)
+  
 
     const email = useSelector((state: RootState) => state.signUp.email)
       const password = useSelector((state: RootState) => state.signUp.password)

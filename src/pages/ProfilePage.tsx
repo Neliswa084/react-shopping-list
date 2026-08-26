@@ -5,8 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import type { RootState } from '../redux/store'
 import { logout } from '../redux/reducers/loginSlice'
 import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
-import {editUserThunk} from '../redux/reducers/loginSlice'
+
 
 
 export const ProfilePage: React.FC = () => {
