@@ -5,12 +5,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import type { RootState } from '../redux/store'
 import { logout } from '../redux/reducers/loginSlice'
 import { useNavigate } from 'react-router-dom'
+import { openModal } from '../redux/reducers/modalSlice'
+import { EditProfileModal } from '../Components/Modals/EditProfileModal/EditProfileModal'
 
 
 
 export const ProfilePage: React.FC = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+    const overlay = useSelector((state: RootState) => state.modal.isModalOpen)
+  const modalType = useSelector((state: RootState) => state.modal.modalType)
   const currentUser = useSelector((state: RootState) => state.login.currentUser)
 
   const initials = currentUser
@@ -55,7 +59,10 @@ export const ProfilePage: React.FC = () => {
           <div className={styles.section}>
             <div className={styles.sectionHeader}>
               <h3 className={styles.sectionTitle}>Personal Details</h3>
-              <button className={styles.editBtn}>Edit</button>
+              <button className={styles.editBtn}
+                onClick={() => dispatch(openModal('editProfile'))} >
+                Edit
+              </button>
             </div>
             <div className={styles.grid}>
               <div className={styles.field}>
@@ -83,9 +90,9 @@ export const ProfilePage: React.FC = () => {
               <h3 className={styles.sectionTitle}>Password</h3>
               <button className={styles.editBtn}>Change</button>
             </div>
-            <p className={styles.value}>••••••••</p>
+            <p className={styles.value}>{currentUser?.password}</p>
           </div>
-
+             {overlay && modalType === 'editProfile' && <EditProfileModal />}
         </div>
       </div>
     </div>

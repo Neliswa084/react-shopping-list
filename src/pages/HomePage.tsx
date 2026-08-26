@@ -59,7 +59,7 @@ useEffect(() => {
 <h2 className={styles.listsTitle}>My Shopping Lists</h2>
 <div className={styles.grid}>
 
-
+  
  
   {
   lists.map((list) => (

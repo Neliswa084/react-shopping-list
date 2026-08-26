@@ -54,20 +54,20 @@ export const fetchUsers = createAsyncThunk (
      }
   }
 )
+
 export const editUserThunk = createAsyncThunk(
   'auth/editUser',
   async (userData: User, thunkAPI) => {
     try {
       const response = await axios.put(
-        `http://localhost:3000/users/${userData.id}`,
-        userData
-      )
+        `http://localhost:3000/users/${userData.id}`,  userData )
       return response.data
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message || 'Failed to update user')
     }
   }
 )
+
 
 export const loginSlice = createSlice({
   name: 'login',

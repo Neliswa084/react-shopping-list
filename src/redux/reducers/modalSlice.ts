@@ -7,17 +7,20 @@ export type ModalType =
  'editList' | 
  'editItem' | 
  'deleteList' | 
+ 'editProfile' |
  null
 
 export interface OpenModalState {
     isModalOpen : boolean
     modalType: ModalType
     selectedListId: string | null
+    selectedUserId: string| null
 }
 const initialState: OpenModalState ={
     isModalOpen: false,
     modalType: null,
-    selectedListId: null
+    selectedListId: null,
+    selectedUserId: null
 }
 
 export const modalSlice = createSlice({
@@ -35,7 +38,11 @@ export const modalSlice = createSlice({
     },
     setSelectedListId: (state, action: PayloadAction<string | null>) => {
       state.selectedListId = action.payload
+    },
+    selectedUserId: (state, action: PayloadAction<string | null >) => {
+      state.selectedUserId = action.payload
     }
+
   }
 })
 
