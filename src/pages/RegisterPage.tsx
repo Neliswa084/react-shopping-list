@@ -45,8 +45,8 @@ export const RegisterPage: React.FC = () => {
             <Input label="Name" value={name} onChange={(e) => dispatch(setName(e.target.value))} name="name" />
             <Input label="Surname" value={surname} onChange={(e) => dispatch(setSurname(e.target.value))} name="surname" />
           </div>
-          <Input label="Email address" value={email} onChange={(e) => dispatch(setEmail(e.target.value))} name="email" />
-          <Input label="Cell number" value={cellNumber} onChange={(e) => dispatch(setCellNumber(e.target.value))} name="cellNumber" />
+          <Input label="Email address" value={email} onChange={(e) => dispatch(setEmail(e.target.value))} name="email" type="email" />
+          <Input label="Cell number" value={cellNumber} onChange={(e) => dispatch(setCellNumber(e.target.value))} name="cellNumber" type="tel" />
           <div className={styles.row}>
             <Input label="Password" value={password} onChange={(e) => dispatch(setPassword(e.target.value))} name="password" type="password" />
           </div>

@@ -55,6 +55,7 @@ export const LoginPage: React.FC = () => {
             value={email}
              onChange={(e) => dispatch(setEmail(e.target.value))}
             name="email"
+            type="email"
           />
           <Input
             label="Password"
