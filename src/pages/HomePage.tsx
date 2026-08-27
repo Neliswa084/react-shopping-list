@@ -15,6 +15,9 @@ import { AddItemModal } from '../Components/Modals/AddItemModal/AddItemModal'
 import { EditListModal } from '../Components/Modals/EditListModal/EditListModal'
 import { EditItemModal } from '../Components/Modals/EditItemModal/EditItemModal'
 import {fetchListsThunk} from '../redux/reducers/listSlice'
+import type { ShoppingList } from '../redux/reducers/listSlice'
+
+
 
 export const HomePage = () => {
 
@@ -36,11 +39,10 @@ useEffect(() => {
       <div className={styles.container}>
            <Navbar />
       <div className={styles.content}>
-  
      <div className={styles.statistic}>
-     <StatisticCard value={3} title='Lists' />
+     <StatisticCard value={lists.length}  title='Lists' />
      <StatisticCard value={5} title='Categories' />
-      <StatisticCard value={10} title='Items' />
+      <StatisticCard value={6} title='Items' />
       <StatisticCard value={4} title='Done' />
      </div>
 

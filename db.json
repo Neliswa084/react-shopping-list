@@ -245,6 +245,13 @@
       "items": [],
       "createdAt": "2026-08-26T07:54:57.042Z",
       "id": "c7i3zsMlE9A"
+    },
+    {
+      "userId": "Iu8iSVTm16Q",
+      "name": "Weakly Groceries",
+      "items": [],
+      "createdAt": "2026-08-27T04:43:51.755Z",
+      "id": "g7NKejVxAzA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
