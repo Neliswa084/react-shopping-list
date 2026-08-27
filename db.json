@@ -75,233 +75,50 @@
   ],
   "list": [
     {
-      "userId": "3vd3CqY28Gs",
+      "userId": "Iu8iSVTm16Q",
       "name": "Weakly Groceries",
+      "notes": "fresh",
+      "category": "Groceries",
       "items": [
         {
-          "id": "1787648807879",
-          "name": "Chicken",
-          "quantity": 1,
-          "category": "Meat",
-          "notes": "Shoprite",
-          "checked": false,
-          "createdAt": "2026-08-25T09:06:47.879Z"
-        },
-        {
-          "id": "1787648823982",
-          "name": "Wors",
-          "quantity": 1,
-          "category": "Meat",
-          "notes": "Shoprite",
-          "checked": false,
-          "createdAt": "2026-08-25T09:07:03.982Z"
-        },
-        {
-          "id": "1787649255965",
+          "id": "1787822486411",
           "name": "Banana",
-          "quantity": 2,
+          "quantity": 1,
           "category": "Fruits",
-          "notes": "Shoprite",
+          "notes": "",
           "checked": false,
-          "createdAt": "2026-08-25T09:14:15.965Z"
+          "createdAt": "2026-08-27T09:21:26.411Z"
         },
         {
-          "id": "1787649285453",
+          "id": "1787823121923",
+          "name": "Banana",
+          "quantity": 1,
+          "category": "Cleaning",
+          "notes": "",
+          "checked": false,
+          "createdAt": "2026-08-27T09:32:01.923Z"
+        },
+        {
+          "id": "1787823168298",
           "name": "Apple",
           "quantity": 1,
           "category": "Fruits",
           "notes": "Shoprite",
           "checked": false,
-          "createdAt": "2026-08-25T09:14:45.453Z"
+          "createdAt": "2026-08-27T09:32:48.298Z"
         }
       ],
-      "createdAt": "2026-08-25T04:35:00.766Z",
-      "id": "Aps_IKWzgmg"
-    },
-    {
-      "userId": "3vd3CqY28Gs",
-      "name": "Shopping List",
-      "items": [
-        {
-          "id": "1787662203548",
-          "name": "Yoghurt",
-          "quantity": 1,
-          "category": "Dairy",
-          "notes": "I will buy it on shoprite",
-          "checked": false,
-          "createdAt": "2026-08-25T12:50:03.548Z"
-        },
-        {
-          "id": "1787662233869",
-          "name": "Banana",
-          "quantity": 5,
-          "category": "Other",
-          "notes": "Cha aziveli",
-          "checked": false,
-          "createdAt": "2026-08-25T12:50:33.869Z"
-        }
-      ],
-      "createdAt": "2026-08-25T12:49:15.526Z",
-      "id": "LhxvJ5ElnYA"
+      "createdAt": "2026-08-27T09:18:11.092Z",
+      "id": "7YEv7tJBVc8"
     },
     {
       "userId": "Iu8iSVTm16Q",
-      "name": "Kanjani?",
-      "items": [
-        {
-          "id": "1787666094460",
-          "name": "Banana",
-          "quantity": 2,
-          "category": "Fruits",
-          "notes": "fresh",
-          "checked": false,
-          "createdAt": "2026-08-25T13:54:54.460Z"
-        },
-        {
-          "id": "1787682420372",
-          "name": "Danone",
-          "quantity": 1,
-          "category": "Dairy",
-          "notes": "",
-          "checked": false,
-          "createdAt": "2026-08-25T18:27:00.372Z"
-        },
-        {
-          "id": "1787682432399",
-          "name": "Chicken",
-          "quantity": 1,
-          "category": "Meat",
-          "notes": "fresh",
-          "checked": false,
-          "createdAt": "2026-08-25T18:27:12.399Z"
-        },
-        {
-          "id": "1787683033444",
-          "name": "Onions",
-          "quantity": 4,
-          "category": "Vegetables",
-          "notes": "",
-          "checked": false,
-          "createdAt": "2026-08-25T18:37:13.444Z"
-        }
-      ],
-      "createdAt": "2026-08-25T12:53:45.797Z",
-      "id": "HOXOlzoscIM"
-    },
-    {
-      "userId": "Iu8iSVTm16Q",
-      "name": "Neliswa 25th Birthday",
-      "items": [
-        {
-          "id": "1787683743268",
-          "name": "Beef",
-          "quantity": 1,
-          "category": "Meat",
-          "notes": "fresh",
-          "checked": false,
-          "createdAt": "2026-08-25T18:49:03.268Z"
-        }
-      ],
-      "createdAt": "2026-08-25T18:47:39.999Z",
-      "id": "zN54J_JGxE0"
-    },
-    {
-      "userId": "Iu8iSVTm16Q",
-      "name": "List",
-      "items": [],
-      "createdAt": "2026-08-25T18:47:46.555Z",
-      "id": "Aa9WZTZ8q6o"
-    },
-    {
-      "userId": "pqe07YZhl6I",
-      "name": "Ndumo's Shopping List",
-      "items": [
-        {
-          "id": "1787730742931",
-          "name": "Apple",
-          "quantity": 1,
-          "category": "Fruits",
-          "notes": "fresh",
-          "checked": false,
-          "createdAt": "2026-08-26T07:52:22.931Z"
-        },
-        {
-          "id": "1787730786843",
-          "name": "Banana",
-          "quantity": 2,
-          "category": "Fruits",
-          "notes": "",
-          "checked": true,
-          "createdAt": "2026-08-26T07:53:06.843Z"
-        },
-        {
-          "id": "1787730806138",
-          "name": "Simba chips",
-          "quantity": 4,
-          "category": "Snacks",
-          "notes": "",
-          "checked": false,
-          "createdAt": "2026-08-26T07:53:26.138Z"
-        }
-      ],
-      "createdAt": "2026-08-26T07:52:08.171Z",
-      "id": "Ll5_8AIcNPo"
-    },
-    {
-      "userId": "pqe07YZhl6I",
-      "name": "Weakly Groceries",
-      "items": [],
-      "createdAt": "2026-08-26T07:54:57.042Z",
-      "id": "c7i3zsMlE9A"
-    },
-    {
-      "userId": "Iu8iSVTm16Q",
-      "name": "Weakly Groceries",
-      "items": [],
-      "createdAt": "2026-08-27T04:43:51.755Z",
-      "id": "g7NKejVxAzA"
-    },
-    {
-      "userId": "2tyzVw2OABw",
-      "name": "Sabelo's 35 birthday List",
-      "items": [
-        {
-          "id": "1787816414681",
-          "name": "Cake",
-          "quantity": 1,
-          "category": "Other",
-          "notes": "",
-          "checked": false,
-          "createdAt": "2026-08-27T07:40:14.681Z"
-        },
-        {
-          "id": "1787816477393",
-          "name": "Apple",
-          "quantity": 1,
-          "category": "Fruits",
-          "notes": "",
-          "checked": false,
-          "createdAt": "2026-08-27T07:41:17.393Z"
-        },
-        {
-          "id": "1787816487800",
-          "name": "Beef",
-          "quantity": 5,
-          "category": "Meat",
-          "notes": "Shoprite",
-          "checked": false,
-          "createdAt": "2026-08-27T07:41:27.800Z"
-        }
-      ],
-      "createdAt": "2026-08-27T07:39:18.961Z",
-      "id": "ESSpfuHVCiQ"
-    },
-    {
-      "userId": "2tyzVw2OABw",
       "name": "Lobola List",
+      "notes": "fresh",
+      "category": "Other",
       "items": [],
-      "createdAt": "2026-08-27T07:47:56.777Z",
-      "id": "mIf-_-KTyMI"
+      "createdAt": "2026-08-27T09:50:45.691Z",
+      "id": "kJHrUx6uhrU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

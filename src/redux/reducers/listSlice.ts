@@ -7,6 +7,8 @@ export interface ShoppingList {
   id?: string
   userId: string
   name: string
+  notes: string
+  category: string
   items: ShoppingItem[]
   createdAt: string
 }

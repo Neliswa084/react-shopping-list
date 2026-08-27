@@ -22,8 +22,7 @@ export const AddItemModal: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!name.trim()) {
-      alert('Please enter an item name')
+    if (!name.trim()) {                                         
       return
     }
     if (!selectedListId) return
