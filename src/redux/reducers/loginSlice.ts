@@ -98,7 +98,7 @@ export const loginSlice = createSlice({
     .addCase(editUserThunk.fulfilled, (state, action) => {
   state.currentUser = action.payload
   localStorage.setItem('currentUser', JSON.stringify(action.payload))
-})
+    })
     .addCase(loginUser.rejected, (state, action) => {
         state.loading = false
         state.error = action.payload as string

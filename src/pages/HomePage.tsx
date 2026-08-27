@@ -61,8 +61,11 @@ useEffect(() => {
 <h2 className={styles.listsTitle}>My Shopping Lists</h2>
 <div className={styles.grid}>
 
-  
- 
+  {lists.length === 0  && (
+   <p className={styles.noList} >No Shopping List , click Add List to Get Started </p>
+    )
+  }
+
   {
   lists.map((list) => (
       <ListCard key={list.id} list={list}/>

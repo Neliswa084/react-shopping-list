@@ -72,7 +72,7 @@ export const ListCard: React.FC<ListCardProps> = ({ list }) => {
           <ProgressBar checked={checkedCount} total={list.items.length} />
 
           {list.items.length === 0 && (
-            <p className={styles.emptyText}>No items yet. Add one!</p>
+            <p className={styles.emptyText}>No items yet. Add one</p>
           )}
 
 
