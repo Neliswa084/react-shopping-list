@@ -15,7 +15,7 @@ import { AddItemModal } from '../Components/Modals/AddItemModal/AddItemModal'
 import { EditListModal } from '../Components/Modals/EditListModal/EditListModal'
 import { EditItemModal } from '../Components/Modals/EditItemModal/EditItemModal'
 import {fetchListsThunk} from '../redux/reducers/listSlice'
-import type { ShoppingList } from '../redux/reducers/listSlice'
+
 
 
 

@@ -6,9 +6,8 @@ import  type  { AppDispatch, RootState } from '../../../redux/store'
 import { editUserThunk } from '../../../redux/reducers/loginSlice'
 import styles from './EditProfileModal.module.css'
 import { Input } from '../../UI/Input/Input'
-import type { User } from '../../../redux/reducers/signUpSlice'
 import { Button } from '../../UI/Button/Button'
-import {  setName, setSurname, setEmail, setCellNumber } from '../../../redux/reducers/signUpSlice'
+
 
 
 
