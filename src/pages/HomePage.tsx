@@ -33,6 +33,19 @@ useEffect(() => {
     dispatch(fetchListsThunk(currentUser.id) as any)
   }
 }, [])
+
+// Total items across all lists
+const totalItems = lists.reduce((total, list) => total + list.items.length, 0)
+
+// Total checked items across all lists
+const totalDone = lists.reduce((total, list) =>
+  total + list.items.filter(item => item.checked).length, 0
+)
+
+// Total unique categories across all lists
+const totalCategories = new Set(
+ lists.flatMap(list => list.items.map(item => item.category))
+).size
   
   return (
     <>
@@ -41,9 +54,9 @@ useEffect(() => {
       <div className={styles.content}>
      <div className={styles.statistic}>
      <StatisticCard value={lists.length}  title='Lists' />
-     <StatisticCard value={5} title='Categories' />
-      <StatisticCard value={6} title='Items' />
-      <StatisticCard value={4} title='Done' />
+     <StatisticCard value={totalCategories} title='Categories' />
+      <StatisticCard value={totalItems} title='Items' />
+      <StatisticCard value={totalDone} title='Done' />
      </div>
 
     <div className={styles.searchRow}>

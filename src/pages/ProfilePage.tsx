@@ -26,6 +26,9 @@ export const ProfilePage: React.FC = () => {
     navigate('/')
   }
 
+  const navToHome = () => {
+    navigate('/home')
+  }
 
 
   return (
@@ -42,11 +45,11 @@ export const ProfilePage: React.FC = () => {
           <p className={styles.email}>{currentUser?.email}</p>
 
           <div className={styles.nav}>
-            <button className={styles.navItem}>Lists</button>
+            {/* <button className={styles.navItem}>Lists</button>
             <button className={styles.navItem}>Items</button>
-            <button className={styles.navItem}>Done</button>
+            <button className={styles.navItem}>Done</button> */}
             <button className={`${styles.navItem} ${styles.active}`}>My Profile</button>
-            <button className={styles.navItem}>My lists</button>
+            <button className={styles.navItem}  onClick={navToHome}>My lists</button>
           </div>
 
           <button className={styles.logout} onClick={handleLogout}>Logout</button>

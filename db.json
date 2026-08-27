@@ -63,6 +63,14 @@
       "password": "Syamthanda",
       "cellNumber": "0712478984",
       "id": "9EqVCzNg6Vw"
+    },
+    {
+      "name": "Sabelo",
+      "surname": "Gumede",
+      "email": "gumede@gmail.com",
+      "password": "Sabelo",
+      "cellNumber": "0636749086",
+      "id": "2tyzVw2OABw"
     }
   ],
   "list": [
@@ -252,6 +260,48 @@
       "items": [],
       "createdAt": "2026-08-27T04:43:51.755Z",
       "id": "g7NKejVxAzA"
+    },
+    {
+      "userId": "2tyzVw2OABw",
+      "name": "Sabelo's 35 birthday List",
+      "items": [
+        {
+          "id": "1787816414681",
+          "name": "Cake",
+          "quantity": 1,
+          "category": "Other",
+          "notes": "",
+          "checked": false,
+          "createdAt": "2026-08-27T07:40:14.681Z"
+        },
+        {
+          "id": "1787816477393",
+          "name": "Apple",
+          "quantity": 1,
+          "category": "Fruits",
+          "notes": "",
+          "checked": false,
+          "createdAt": "2026-08-27T07:41:17.393Z"
+        },
+        {
+          "id": "1787816487800",
+          "name": "Beef",
+          "quantity": 5,
+          "category": "Meat",
+          "notes": "Shoprite",
+          "checked": false,
+          "createdAt": "2026-08-27T07:41:27.800Z"
+        }
+      ],
+      "createdAt": "2026-08-27T07:39:18.961Z",
+      "id": "ESSpfuHVCiQ"
+    },
+    {
+      "userId": "2tyzVw2OABw",
+      "name": "Lobola List",
+      "items": [],
+      "createdAt": "2026-08-27T07:47:56.777Z",
+      "id": "mIf-_-KTyMI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
