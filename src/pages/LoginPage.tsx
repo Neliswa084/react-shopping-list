@@ -62,6 +62,7 @@ export const LoginPage: React.FC = () => {
             value={password}
             onChange={(e) => dispatch(setPassword(e.target.value))}
             name="password"
+            type="password"
           />
           <p className={styles.forgot}>Forgot password?</p>
           <Button label="Log in" type="submit" />
