@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Navbar } from '../Components/Navbar/Navbar'
 import { StatisticCard } from '../Components/UI/StatisticCard/StatisticCard'
 import styles from './HomePage.module.css'
@@ -26,6 +26,34 @@ export const HomePage = () => {
   const lists = useSelector((state: RootState) => state.list.lists)
   const currentUser = useSelector((state: RootState) => state.login.currentUser)
 
+  const [sortBy, setSortBy] = useState<'name' | 'category' | 'date'>('date')
+
+
+
+  const [searchQuery, setSearchQuery] = useState('')
+
+
+  const sortedList = [...lists].sort((a, b) => {
+    if (sortBy === 'name') return a.name.localeCompare(b.name)
+    if (sortBy === 'category') return a.name.localeCompare(b.category)
+    if (sortBy === 'date') return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    return 0
+  })
+
+  const filteredLists = lists.filter(list =>
+    list.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    list.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    list.notes.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
+  const sortedLists = [...filteredLists].sort((a, b) => {
+    if (sortBy === 'name') return a.name.localeCompare(b.name)
+    if (sortBy === 'category') return a.category.localeCompare(b.category)
+    if (sortBy === 'date') return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    return 0
+  })
+
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -34,19 +62,16 @@ export const HomePage = () => {
     }
   }, [])
 
-  // Total items across all lists
+
   const totalItems = lists.reduce((total, list) => total + list.items.length, 0)
 
-  // Total checked items across all lists
+
   const totalDone = lists.reduce((total, list) =>
     total + list.items.filter(item => item.checked).length, 0
   )
 
-  // Total unique categories across all lists
-  const totalCategories = new Set(
-    lists.flatMap(list => list.items.map(item => item.category))
-  ).size
 
+  const totalCategories = new Set(lists.map(list => list.category)).size
   return (
     <>
       <div className={styles.container}>
@@ -61,12 +86,21 @@ export const HomePage = () => {
 
           <div className={styles.searchRow}>
             <div className={styles.searchWrapper}>
-              <SearchBar value='' onChange={() => { }} />
+              <SearchBar value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+
             </div>
 
-            <button className={styles.sortBtn}>Name</button>
-            <button className={styles.sortBtn}>Category</button>
-            <button className={styles.sortBtn}>Date</button>
+            <button
+              className={`${styles.sortBtn} ${sortBy === 'name' ? styles.sortActive : ''}`}
+              onClick={() => setSortBy('name')} >Name</button>
+
+            <button
+              className={`${styles.sortBtn} ${sortBy === 'category' ? styles.sortActive : ''}`}
+              onClick={() => setSortBy('category')} >Category</button>
+            <button
+              className={`${styles.sortBtn} ${sortBy === 'date' ? styles.sortActive : ''}`}
+              onClick={() => setSortBy('date')} >Date</button>
+
             <div className={styles.addBtn}>
               <Button label="+ Add List" onClick={() => dispatch(openModal('addList'))} />
             </div>
@@ -78,11 +112,12 @@ export const HomePage = () => {
               <p className={styles.noList} >No Shopping List , click Add List to Get Started </p>
             )
             }
-            {[...new Set(lists.map(l => l.category))].map(category => (
+
+            {[...new Set(sortedLists.map(l => l.category))].map(category => (
               <div key={category}>
                 <h3 className={styles.categoryHeading}>{category}</h3>
                 <div className={styles.grid}>
-                  {lists
+                  {sortedLists
                     .filter(list => list.category === category)
                     .map(list => (
                       <ListCard key={list.id} list={list} />
@@ -106,3 +141,5 @@ export const HomePage = () => {
     </>
   )
 }
+
+

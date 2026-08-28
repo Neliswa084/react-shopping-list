@@ -27,6 +27,7 @@
   font-weight: 600;
   color: #111827;
 }
+
 .searchRow {
   display: flex;
   align-items: center;
@@ -56,23 +57,48 @@
 .addBtn {
   width: 130px;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 16px;
-  align-items: start; 
+  align-items: start;
 }
-.noList{
- grid-column: 1 / -1; 
-  width: 100%;         
-  text-align: center;  
+
+.noList {
+  grid-column: 1 / -1;
+  width: 100%;
+  text-align: center;
 }
 
 .categoryHeading {
-font-size: 15px;
-font-weight: 600;
-color: #6D28D9;
-margin: 20px 0 10px 0;
-padding-bottom: 6px;
-border-bottom: 2px solid #EDE9FE;
+  font-size: 15px;
+  font-weight: 600;
+  color: #6D28D9;
+  margin: 20px 0 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #EDE9FE;
 }
+
+.sortActive {
+  background-color: #7C3AED;
+  color: white;
+  border-color: #7C3AED;
+}
+
+.card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+

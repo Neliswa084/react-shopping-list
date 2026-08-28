@@ -76,67 +76,103 @@
   "list": [
     {
       "userId": "Iu8iSVTm16Q",
-      "name": "Neliswa 25th Birthday",
-      "notes": "Birthday List",
+      "name": "Siyanda ' birthday shopping li",
+      "notes": "hhn",
       "category": "Birthdays",
-      "items": [
-        {
-          "id": "1787832457596",
-          "name": "Onions",
-          "quantity": 2,
-          "category": "Other",
-          "notes": "Birthday List",
-          "checked": false,
-          "createdAt": "2026-08-27T12:07:37.596Z"
-        }
-      ],
-      "createdAt": "2026-08-27T11:54:48.048Z",
-      "id": "1AG1X0VPc7s"
+      "items": [],
+      "createdAt": "2026-08-28T11:52:45.438Z",
+      "id": "HSCQ3mnF-Pc"
     },
     {
       "userId": "Iu8iSVTm16Q",
-      "name": "Andiswa Birthday shopping List",
-      "notes": "Shoprite",
+      "name": "Neliswa 25th Birthday",
+      "notes": "",
       "category": "Birthdays",
+      "items": [
+        {
+          "id": "1787918008589",
+          "name": "Banana",
+          "quantity": 2,
+          "category": "Fruits",
+          "notes": "",
+          "checked": false,
+          "createdAt": "2026-08-28T11:53:28.589Z"
+        },
+        {
+          "id": "1787918015605",
+          "name": "Apple",
+          "quantity": 1,
+          "category": "Fruits",
+          "notes": "",
+          "checked": false,
+          "createdAt": "2026-08-28T11:53:35.605Z"
+        },
+        {
+          "id": "1787918025333",
+          "name": "Chicken",
+          "quantity": 1,
+          "category": "Meat",
+          "notes": "Shoprite",
+          "checked": false,
+          "createdAt": "2026-08-28T11:53:45.333Z"
+        },
+        {
+          "id": "1787922249850",
+          "name": "Beef",
+          "quantity": 1,
+          "category": "Meat",
+          "notes": "",
+          "checked": false,
+          "createdAt": "2026-08-28T13:04:09.850Z"
+        },
+        {
+          "id": "1787922388274",
+          "name": "Apple",
+          "quantity": 1,
+          "category": "Fruits",
+          "notes": "",
+          "checked": false,
+          "createdAt": "2026-08-28T13:06:28.274Z"
+        }
+      ],
+      "createdAt": "2026-08-28T11:53:02.876Z",
+      "id": "0PT3DeXHPUA"
+    },
+    {
+      "userId": "Iu8iSVTm16Q",
+      "name": "Braai supplies",
+      "notes": "",
+      "category": "Groceries",
       "items": [],
-      "createdAt": "2026-08-28T10:01:05.297Z",
-      "id": "lGe6ZK9hfdM"
+      "createdAt": "2026-08-28T11:54:30.421Z",
+      "id": "nTcrPMrmSGk"
     },
     {
       "userId": "Iu8iSVTm16Q",
       "name": "Weakly Groceries",
-      "notes": "Shoprite",
-      "category": "Groceries",
+      "notes": "",
+      "category": "Stokfel",
       "items": [],
-      "createdAt": "2026-08-28T10:01:13.025Z",
-      "id": "wkph_vciq_I"
+      "createdAt": "2026-08-28T12:31:37.267Z",
+      "id": "fCHLuzLnRm4"
+    },
+    {
+      "userId": "Iu8iSVTm16Q",
+      "name": "List",
+      "notes": "",
+      "category": "Household",
+      "items": [],
+      "createdAt": "2026-08-28T12:37:08.043Z",
+      "id": "1goiUt7leQ4"
     },
     {
       "userId": "Iu8iSVTm16Q",
       "name": "Cleanig",
-      "notes": "Birthday List",
+      "notes": "",
       "category": "Household",
       "items": [],
-      "createdAt": "2026-08-28T10:01:39.265Z",
-      "id": "6c9hUDouxfY"
-    },
-    {
-      "userId": "Iu8iSVTm16Q",
-      "name": "xc",
-      "notes": "cx",
-      "category": "Birthdays",
-      "items": [],
-      "createdAt": "2026-08-28T10:01:46.210Z",
-      "id": "9zd_dfiicnk"
-    },
-    {
-      "userId": "Iu8iSVTm16Q",
-      "name": "December stokfel",
-      "notes": "",
-      "category": "Stokfel",
-      "items": [],
-      "createdAt": "2026-08-28T10:02:08.666Z",
-      "id": "CL62_MuXVAs"
+      "createdAt": "2026-08-28T13:04:31.786Z",
+      "id": "EQuef2f8awc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
