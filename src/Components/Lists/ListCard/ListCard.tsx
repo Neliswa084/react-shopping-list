@@ -59,6 +59,7 @@ export const ListCard: React.FC<ListCardProps> = ({ list }) => {
         <div className={styles.avatar} />
         <div className={styles.info}>
           <h3 className={styles.name}>{list.name}</h3>
+      
           <p className={styles.subtitle}>{new Set(list.items.map(i => i.category)).size} Categories {list.items.length} Items </p>
         </div>
         <button className={styles.arrow} onClick={() => setExpanded(!expanded)}>

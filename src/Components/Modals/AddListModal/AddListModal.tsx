@@ -9,7 +9,7 @@ import { closeModal } from '../../../redux/reducers/modalSlice'
 import { createListThunk } from '../../../redux/reducers/listSlice'
 import type { RootState } from '../../../redux/store'
 
-const CATEGORIES = ['Groceries', 'Stokfel', 'Birthdays', 'Household', 'Other']
+export const LISTCATEGORIES = ['Groceries', 'Stokfel', 'Birthdays', 'Household', 'Other']
 
 export const AddListModal: React.FC = () => {
   const dispatch = useDispatch()
@@ -63,7 +63,7 @@ export const AddListModal: React.FC = () => {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
-            {CATEGORIES.map(cat => (
+            {LISTCATEGORIES.map(cat => (
               <option key={cat} value={cat}>{cat}</option>
             ))}
           </select>

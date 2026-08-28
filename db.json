@@ -76,49 +76,22 @@
   "list": [
     {
       "userId": "Iu8iSVTm16Q",
-      "name": "Weakly Groceries",
-      "notes": "fresh",
-      "category": "Groceries",
+      "name": "Neliswa 25th Birthday",
+      "notes": "Birthday List",
+      "category": "Birthdays",
       "items": [
         {
-          "id": "1787822486411",
-          "name": "Banana",
-          "quantity": 1,
-          "category": "Fruits",
-          "notes": "",
+          "id": "1787832457596",
+          "name": "Onions",
+          "quantity": 2,
+          "category": "Other",
+          "notes": "Birthday List",
           "checked": false,
-          "createdAt": "2026-08-27T09:21:26.411Z"
-        },
-        {
-          "id": "1787823121923",
-          "name": "Banana",
-          "quantity": 1,
-          "category": "Cleaning",
-          "notes": "",
-          "checked": false,
-          "createdAt": "2026-08-27T09:32:01.923Z"
-        },
-        {
-          "id": "1787823168298",
-          "name": "Apple",
-          "quantity": 1,
-          "category": "Fruits",
-          "notes": "Shoprite",
-          "checked": false,
-          "createdAt": "2026-08-27T09:32:48.298Z"
+          "createdAt": "2026-08-27T12:07:37.596Z"
         }
       ],
-      "createdAt": "2026-08-27T09:18:11.092Z",
-      "id": "7YEv7tJBVc8"
-    },
-    {
-      "userId": "Iu8iSVTm16Q",
-      "name": "Lobola List",
-      "notes": "fresh",
-      "category": "Other",
-      "items": [],
-      "createdAt": "2026-08-27T09:50:45.691Z",
-      "id": "kJHrUx6uhrU"
+      "createdAt": "2026-08-27T11:54:48.048Z",
+      "id": "1AG1X0VPc7s"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
