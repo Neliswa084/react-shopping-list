@@ -3,6 +3,7 @@ import styles from './LandingPage.module.css'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../Components/UI/Button/Button'
 import shoppingListImage from '../assets/ShopingListImage-nobackground.png'
+import { Navbar } from '../Components/Navbar/Navbar'
 
 export const LandingPage: React.FC = () => {
   const navigate = useNavigate()
@@ -10,6 +11,8 @@ export const LandingPage: React.FC = () => {
   const navigateToLogin = () => navigate('/login')
 
   return (
+    <>
+       <Navbar />
     <div className={styles.container}>
       <div className={styles.left}>
         <h1 className={styles.title}>ShoppingList</h1>
@@ -27,5 +30,6 @@ export const LandingPage: React.FC = () => {
         <img src={shoppingListImage} alt="Shopping illustration" className={styles.heroImage} />
       </div>
     </div>
+    </>
   )
 }
