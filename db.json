@@ -92,6 +92,51 @@
       ],
       "createdAt": "2026-08-27T11:54:48.048Z",
       "id": "1AG1X0VPc7s"
+    },
+    {
+      "userId": "Iu8iSVTm16Q",
+      "name": "Andiswa Birthday shopping List",
+      "notes": "Shoprite",
+      "category": "Birthdays",
+      "items": [],
+      "createdAt": "2026-08-28T10:01:05.297Z",
+      "id": "lGe6ZK9hfdM"
+    },
+    {
+      "userId": "Iu8iSVTm16Q",
+      "name": "Weakly Groceries",
+      "notes": "Shoprite",
+      "category": "Groceries",
+      "items": [],
+      "createdAt": "2026-08-28T10:01:13.025Z",
+      "id": "wkph_vciq_I"
+    },
+    {
+      "userId": "Iu8iSVTm16Q",
+      "name": "Cleanig",
+      "notes": "Birthday List",
+      "category": "Household",
+      "items": [],
+      "createdAt": "2026-08-28T10:01:39.265Z",
+      "id": "6c9hUDouxfY"
+    },
+    {
+      "userId": "Iu8iSVTm16Q",
+      "name": "xc",
+      "notes": "cx",
+      "category": "Birthdays",
+      "items": [],
+      "createdAt": "2026-08-28T10:01:46.210Z",
+      "id": "9zd_dfiicnk"
+    },
+    {
+      "userId": "Iu8iSVTm16Q",
+      "name": "December stokfel",
+      "notes": "",
+      "category": "Stokfel",
+      "items": [],
+      "createdAt": "2026-08-28T10:02:08.666Z",
+      "id": "CL62_MuXVAs"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
