@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "name": "Neliswa",
-      "surname": "Ngcobo",
-      "email": "neliswangcobo141@gmail.com",
-      "cellNumber": "0735678986",
-      "password": "Neliswa084",
-      "id": "Iu8iSVTm16Q"
-    },
-    {
       "name": "Maneli",
       "surname": "Mncwabe",
       "email": "mncwabemaneli12@gmail.com",
@@ -79,6 +71,14 @@
       "password": "$2b$10$D3AOt.0fOGNcgxPu5GVT6.3sBXqyqMrjpFrTT4WX5jeoA35IF5Wyi",
       "cellNumber": "0712478984",
       "id": "tkX4UHsPDXo"
+    },
+    {
+      "name": "Neliswa Ngcobo",
+      "surname": "Ngcobo",
+      "email": "neliswangcobo141@gmail.com",
+      "password": "$2b$10$.DGPGpuVbuA2QE1/rtrd4.S9ThRUzwtgDxyDjz9uuRqJrsLvmFcGy",
+      "cellNumber": "0845884210",
+      "id": "RrWAHdnlOmA"
     }
   ],
   "list": [
