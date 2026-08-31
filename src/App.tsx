@@ -4,6 +4,7 @@ import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { HomePage } from './pages/HomePage'
 import { ProfilePage } from './pages/ProfilePage'
+import { SharedListPage } from './pages/SharedListPage'
 import { NotFound } from './Components/NotFoundComponent/NotFound'
 import { ProtectedRoute } from './Components/ProtectedRoute/ProtectedRoute'
 
@@ -14,12 +15,15 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
 
-    <Route element={<ProtectedRoute />}>
-      <Route path="/home" element={<HomePage/>} /> 
-      <Route path="/profile" element={<ProfilePage />} />
+     
+      <Route path="/shared-list/:id" element={<SharedListPage />} />
+
+      <Route element={<ProtectedRoute />}>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Route>
 
-      <Route path="*" element={<NotFound/>} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }

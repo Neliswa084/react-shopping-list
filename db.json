@@ -234,8 +234,18 @@
           "category": "Other",
           "notes": "",
           "image": "",
-          "checked": false,
+          "checked": true,
           "createdAt": "2026-08-31T07:04:46.069Z"
+        },
+        {
+          "id": "1788161000984",
+          "name": "Sweets",
+          "quantity": 2,
+          "category": "Snacks",
+          "notes": "",
+          "image": "",
+          "checked": true,
+          "createdAt": "2026-08-31T07:23:20.984Z"
         }
       ],
       "createdAt": "2026-08-31T07:04:30.760Z",
@@ -243,6 +253,26 @@
       "sharedWith": [
         "Iu8iSVTm16Q"
       ]
+    },
+    {
+      "userId": "tkX4UHsPDXo",
+      "name": "Cleanig",
+      "notes": "",
+      "category": "Household",
+      "items": [
+        {
+          "id": "1788160838147",
+          "name": "Domestos",
+          "quantity": 2,
+          "category": "Cleaning",
+          "notes": "",
+          "image": "",
+          "checked": false,
+          "createdAt": "2026-08-31T07:20:38.147Z"
+        }
+      ],
+      "createdAt": "2026-08-31T07:20:16.188Z",
+      "id": "hgkeued-uZk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -52,6 +52,25 @@ export const ListCard: React.FC<ListCardProps> = ({ list }) => {
     dispatch(toggleItemThunk({ listId: list.id ?? '', itemId }))
   }
 
+  const handleShareList = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation()
+    const shareUrl = `${window.location.origin}/shared-list/${list.id}`
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: list.name,
+          text: `Check out my shopping list: ${list.name}`,
+          url: shareUrl,
+        })
+      } else {
+        await navigator.clipboard.writeText(shareUrl)
+        alert('Link copied to clipboard!')
+      }
+    } catch (error) {
+      console.log('Share cancelled', error)
+    }
+  }
+
   return (
     <div className={styles.card}>
       {/* Header */}
@@ -101,7 +120,7 @@ export const ListCard: React.FC<ListCardProps> = ({ list }) => {
           <div className={styles.actions}>
             <button className={styles.actionBtn} onClick={handleAddItem}>Add Item</button>
             <button className={styles.actionBtn} onClick={handleEditList}>Edit</button>
-            <button className={styles.actionBtn}>Share</button>
+            <button className={styles.actionBtn} onClick={handleShareList}>Share</button>
             <button className={styles.deleteBtn} onClick={handleDeleteList}>Delete</button>
           </div>
         </div>

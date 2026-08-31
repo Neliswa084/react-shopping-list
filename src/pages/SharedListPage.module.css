@@ -1,0 +1,160 @@
+.page {
+  background-color: #EDE9FE;
+  min-height: 100vh;
+  padding: 32px 16px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.center {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6B7280;
+  gap: 8px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 4px 0;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #9CA3AF;
+  margin: 0;
+}
+
+.info {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.badge {
+  background: #F5F3FF;
+  border-radius: 10px;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.badge span {
+  font-size: 12px;
+  color: #9CA3AF;
+}
+
+.badge strong {
+  font-size: 15px;
+  color: #6D28D9;
+}
+
+.notes {
+  font-size: 14px;
+  color: #374151;
+  background: #F9FAFB;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+}
+
+.itemsTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 12px 0;
+}
+
+.empty {
+  color: #9CA3AF;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #F9FAFB;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.item.checked {
+  opacity: 0.5;
+}
+
+.number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #EDE9FE;
+  color: #6D28D9;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.itemImage {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.itemInfo {
+  flex: 1;
+}
+
+.itemName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 2px 0;
+}
+
+.itemCategory {
+  font-size: 12px;
+  color: #9CA3AF;
+  margin: 0;
+}
+
+.itemNotes {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 2px 0 0 0;
+}
+
+.quantity {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6D28D9;
+  white-space: nowrap;
+}

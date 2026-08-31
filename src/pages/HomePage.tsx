@@ -27,7 +27,6 @@ export const HomePage = () => {
   const [sortBy, setSortBy] = useState<'name' | 'category' | 'date'>('date')
   const [searchQuery, setSearchQuery] = useState('')
 
-  // Option A: track which category is open. null = show category cards
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
   useEffect(() => {
@@ -65,7 +64,7 @@ export const HomePage = () => {
         <Navbar />
         <div className={styles.content}>
 
-          {/* Stats — always visible */}
+          
           <div className={styles.statistic}>
             <StatisticCard value={lists.length} title='Lists' />
             <StatisticCard value={totalCategories} title='Categories' />
@@ -73,7 +72,7 @@ export const HomePage = () => {
             <StatisticCard value={totalDone} title='Done' />
           </div>
 
-          {/* ── LEVEL 1: Category cards ── */}
+        {/* Category Cards */}
           {selectedCategory === null && (
             <>
               <div className={styles.pageHeader}>
@@ -130,7 +129,7 @@ export const HomePage = () => {
             </>
           )}
 
-          {/* ── LEVEL 2: Lists inside a category ── */}
+          {/*  Lists inside a category  */}
           {selectedCategory !== null && (
             <>
               {/* Back + title */}
