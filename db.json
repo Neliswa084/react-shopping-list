@@ -273,6 +273,33 @@
       ],
       "createdAt": "2026-08-31T07:20:16.188Z",
       "id": "hgkeued-uZk"
+    },
+    {
+      "userId": "RrWAHdnlOmA",
+      "name": "Weakly Groceries",
+      "notes": "",
+      "category": "Groceries",
+      "items": [],
+      "createdAt": "2026-08-31T09:05:22.689Z",
+      "id": "7Y8oR6VteVA"
+    },
+    {
+      "userId": "RrWAHdnlOmA",
+      "name": "Month End",
+      "notes": "",
+      "category": "Groceries",
+      "items": [],
+      "createdAt": "2026-08-31T09:05:50.513Z",
+      "id": "oN_wTPK_pCw"
+    },
+    {
+      "userId": "RrWAHdnlOmA",
+      "name": "Mqasho Shopping List",
+      "notes": "Buy at shoprite , Edendale mall",
+      "category": "Other",
+      "items": [],
+      "createdAt": "2026-08-31T09:08:51.817Z",
+      "id": "QvkWPC2Zkg4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
