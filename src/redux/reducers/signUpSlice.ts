@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
+import bcrypt from 'bcryptjs'
 
 export interface User {
   id?: string
@@ -36,7 +37,8 @@ export const registerUserThunk = createAsyncThunk(
         return thunkAPI.rejectWithValue('Email already registered')
       }
 
-      const response = await axios.post('http://localhost:3000/users', userData)
+      const hashedPassword = await bcrypt.hash(userData.password, 10)
+      const response = await axios.post('http://localhost:3000/users', { ...userData, password: hashedPassword })
       return response.data
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message || 'Server error')

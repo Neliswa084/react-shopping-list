@@ -1,6 +1,7 @@
 import { createSlice , createAsyncThunk  } from '@reduxjs/toolkit'
 import type { User } from './signUpSlice'
 import axios from 'axios'
+import bcrypt from 'bcryptjs'
 
 export interface AuthState {
   currentUser: User | null
@@ -22,20 +23,25 @@ const initialState: AuthState = {
 export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async (credentials: { email: string; password: Required<User>['password'] }, thunkAPI) => {
-    try { 
-    
-      const response = await axios.get<User[]>(
-        `http://localhost:3000/users?email=${credentials.email}&password=${credentials.password}`
+    try {
+
+      const emailCheck = await axios.get<User[]>(
+        `http://localhost:3000/users?email=${credentials.email}`
       )
 
-     
-      if (response.data.length === 0) {
-
-        return thunkAPI.rejectWithValue('Invalid email or password')
+      if (emailCheck.data.length === 0) {
+        return thunkAPI.rejectWithValue('No account found with that email')
       }
 
-  
-      return response.data[0]
+      const user = emailCheck.data[0]
+
+     
+      const passwordMatch = await bcrypt.compare(credentials.password, user.password)
+      if (!passwordMatch) {
+        return thunkAPI.rejectWithValue('Wrong password, please try again')
+      }
+
+      return user
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message || 'Server error occurred during login')
     }
