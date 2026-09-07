@@ -14,7 +14,7 @@ type ListCardProps = {
   list: ShoppingList
 }
 
-export const ListCard: React.FC<ListCardProps> = ({ list }) => {
+export const  ListCard: React.FC<ListCardProps> = ({ list }) => {
   const [expanded, setExpanded] = useState(false)
   const dispatch = useDispatch<AppDispatch>()
 
