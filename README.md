@@ -1,3 +1,4 @@
+<img src="https://socialify.git.ci/Neliswa084/react-shopping-list/image?language=1&owner=1&name=1&stargazers=1&theme=Light" alt="react-shopping-list" width="640" height="320" />
 # React Shopping List App
 
 A full-stack shopping list application built with React and TypeScript. Users can register, log in, create shopping lists organised by category, manage items, and share lists with others via a public link.
