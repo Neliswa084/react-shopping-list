@@ -279,7 +279,28 @@
       "name": "Weakly Groceries",
       "notes": "",
       "category": "Groceries",
-      "items": [],
+      "items": [
+        {
+          "id": "1788786105781",
+          "name": "Onions",
+          "quantity": 3,
+          "category": "Vegetables",
+          "notes": "m",
+          "image": "",
+          "checked": false,
+          "createdAt": "2026-09-07T13:01:45.781Z"
+        },
+        {
+          "id": "1788786121937",
+          "name": "Doritos",
+          "quantity": 1,
+          "category": "Snacks",
+          "notes": "mn",
+          "image": "",
+          "checked": false,
+          "createdAt": "2026-09-07T13:02:01.937Z"
+        }
+      ],
       "createdAt": "2026-08-31T09:05:22.689Z",
       "id": "7Y8oR6VteVA"
     },
