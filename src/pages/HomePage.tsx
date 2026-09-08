@@ -15,6 +15,7 @@ import { AddItemModal } from '../Components/Modals/AddItemModal/AddItemModal'
 import { EditListModal } from '../Components/Modals/EditListModal/EditListModal'
 import { EditItemModal } from '../Components/Modals/EditItemModal/EditItemModal'
 import { fetchListsThunk } from '../redux/reducers/listSlice'
+import { useSearchParams } from 'react-router-dom'
 
 
 export const HomePage = () => {
@@ -24,7 +25,12 @@ export const HomePage = () => {
   const currentUser = useSelector((state: RootState) => state.login.currentUser)
   const dispatch = useDispatch<AppDispatch>()
 
-  const [sortBy, setSortBy] = useState<'name' | 'category' | 'date'>('date')
+  // const [sortBy, setSortBy] = useState<'name' | 'category' | 'date'>('date')
+
+const [searchParams, setSearchParams] = useSearchParams()
+const sortBy = (searchParams.get('sort') as 'name' | 'date') ?? 'date'
+
+
   const [searchQuery, setSearchQuery] = useState('')
 
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
@@ -150,10 +156,10 @@ export const HomePage = () => {
                 </div>
                 <button
                   className={`${styles.sortBtn} ${sortBy === 'name' ? styles.sortActive : ''}`}
-                  onClick={() => setSortBy('name')}>Name</button>
+                onClick={() => setSearchParams({ sort: 'name' })}>Name</button>
                 <button
                   className={`${styles.sortBtn} ${sortBy === 'date' ? styles.sortActive : ''}`}
-                  onClick={() => setSortBy('date')}>Date</button>
+                  onClick={() => setSearchParams('date')}>Date</button>
                 <div className={styles.addBtn}>
                   <Button label="+ Add List" onClick={() => dispatch(openModal('addList'))} />
                 </div>
