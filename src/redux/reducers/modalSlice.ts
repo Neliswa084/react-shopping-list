@@ -1,13 +1,14 @@
 import {createSlice} from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-export type ModalType = 
+export type ModalType =
 'addList' |
- 'addItem' | 
- 'editList' | 
- 'editItem' | 
- 'deleteList' | 
+ 'addItem' |
+ 'editList' |
+ 'editItem' |
+ 'deleteList' |
  'editProfile' |
+ 'changePassword' |
  null
 
 export interface OpenModalState {

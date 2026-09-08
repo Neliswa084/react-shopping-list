@@ -7,6 +7,7 @@ import { logout } from '../redux/reducers/loginSlice'
 import { useNavigate } from 'react-router-dom'
 import { openModal } from '../redux/reducers/modalSlice'
 import { EditProfileModal } from '../Components/Modals/EditProfileModal/EditProfileModal'
+import { ChangePasswordModal } from '../Components/Modals/ChangePasswordModal/ChangePasswordModal'
 
 
 
@@ -91,11 +92,18 @@ export const ProfilePage: React.FC = () => {
           <div className={styles.section}>
             <div className={styles.sectionHeader}>
               <h3 className={styles.sectionTitle}>Password</h3>
-              <button className={styles.editBtn}>Change</button>
+              <button
+                className={styles.editBtn}
+                onClick={() => dispatch(openModal('changePassword'))}
+              >
+                Change
+              </button>
             </div>
-            <p className={styles.value}>{currentUser?.password}</p>
+            <p className={styles.value}>••••••••</p>
           </div>
-             {overlay && modalType === 'editProfile' && <EditProfileModal />}
+
+          {overlay && modalType === 'editProfile' && <EditProfileModal />}
+          {overlay && modalType === 'changePassword' && <ChangePasswordModal />}
         </div>
       </div>
     </div>

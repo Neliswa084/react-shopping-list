@@ -13,7 +13,7 @@ export const ForgetPasswordPage = () => {
       <div className={styles.container}>
       <Card>
         <h2 className={styles.title}>Forgot Your Password ?</h2>
-        <p className={styles.subtitle}> Enter the Email you Signed Up with we will send You Reset Instructions</p>
+        <p className={styles.subtitle}>Enter the Email you Signed Up with we will send You Reset Instructions</p>
         <form className={styles.form} >
           <Input
             label="Email address"
