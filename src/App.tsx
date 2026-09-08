@@ -7,6 +7,7 @@ import { ProfilePage } from './pages/ProfilePage'
 import { SharedListPage } from './pages/SharedListPage'
 import { NotFound } from './Components/NotFoundComponent/NotFound'
 import { ProtectedRoute } from './Components/ProtectedRoute/ProtectedRoute'
+import { ForgetPasswordPage } from './pages/ForgetPasswordPage'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/forgotPass" element={<ForgetPasswordPage/>} />
 
      
       <Route path="/shared-list/:id" element={<SharedListPage />} />

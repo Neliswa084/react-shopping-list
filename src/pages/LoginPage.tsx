@@ -40,6 +40,10 @@ export const LoginPage: React.FC = () => {
     navigate('/register')
   }
 
+  const navigateToForgotPassword = () =>{
+    navigate('/forgotPass')
+  }
+
      
 
 
@@ -48,7 +52,6 @@ export const LoginPage: React.FC = () => {
       <Card>
         <h2 className={styles.title}>Welcome Back</h2>
         <p className={styles.subtitle}>Log in to your ShoppingList account</p>
-        {/* {error && <p className={styles.errorMessage} style={{ color: 'red' }}>{error}</p>} */}
         <form className={styles.form} onSubmit={handleLoginSubmit}>
           <Input
             label="Email address"
@@ -64,7 +67,7 @@ export const LoginPage: React.FC = () => {
             name="password"
             type="password"
           />
-          <p className={styles.forgot}>Forgot password?</p>
+          <p className={styles.forgot} onClick={navigateToForgotPassword}>Forgot password?</p>
           <Button label="Log in" type="submit" />
           <p className={styles.switchText}>
             Don't have an account?{' '}

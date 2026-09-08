@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { ShoppingItem } from './listItemSlice'
 import axios from 'axios'
 
+const apiUrl = "http://localhost:3000/list";
 
 export interface ShoppingList {
   id?: string
@@ -25,12 +26,13 @@ loading:false,
 error:null
 
 }
+
 // GET: Fetch all lists
 export const fetchListsThunk = createAsyncThunk(
   'list/fetchAll',
   async (userId: string, thunkAPI) => {
     try {
-      const response = await axios.get(`http://localhost:3000/list?userId=${userId}`)
+      const response = await axios.get(`${apiUrl}?userId=${userId}`)
       return response.data
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message || 'Failed to fetch lists')
@@ -44,7 +46,7 @@ export const createListThunk = createAsyncThunk (
   'list/createList',
   async (listData: Omit<ShoppingList , 'id'>, thunkAPI) =>{
     try{
-      const response = await axios.post('http://localhost:3000/list', listData)
+      const response = await axios.post(apiUrl, listData)
       return response.data 
     }catch (err: any){
       return thunkAPI.rejectWithValue(err.message || 'Server error')
@@ -56,7 +58,7 @@ export const editListThunk = createAsyncThunk(
   'list/editList',
   async (listData: ShoppingList, thunkAPI) => {
     try {
-      const response = await axios.put(`http://localhost:3000/list/${listData.id}`, listData)
+      const response = await axios.put(`${apiUrl}/${listData.id}`, listData)
       return response.data // Returns the updated list object
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.response?.data?.message || err.message || 'Failed to update list')
@@ -69,7 +71,7 @@ export const deleteListThunk = createAsyncThunk(
   'list/deleteList',
   async (listId: string, thunkAPI) => {
     try {
-      await axios.delete(`http://localhost:3000/list/${listId}`)
+      await axios.delete(`${apiUrl}/${listId}`)
       return listId
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.response?.data?.message || err.message || 'Failed to delete list')
@@ -86,7 +88,7 @@ export const addItemThunk = createAsyncThunk(
       const list = state.list.lists.find(l => l.id === payload.listId)
       if (!list) return thunkAPI.rejectWithValue('List not found')
       const updatedList = { ...list, items: [...list.items, payload.item] }
-      const response = await axios.put(`http://localhost:3000/list/${payload.listId}`, updatedList)
+      const response = await axios.put(`${apiUrl}/${payload.listId}`, updatedList)
       return response.data
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message || 'Failed to add item')
@@ -104,7 +106,7 @@ export const editItemThunk = createAsyncThunk(
       if (!list) return thunkAPI.rejectWithValue('List not found')
       const updatedItems = list.items.map(i => i.id === payload.item.id ? payload.item : i)
       const updatedList = { ...list, items: updatedItems }
-      const response = await axios.put(`http://localhost:3000/list/${payload.listId}`, updatedList)
+      const response = await axios.put(`${apiUrl}/${payload.listId}`, updatedList)
       return response.data
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message || 'Failed to edit item')
@@ -121,7 +123,7 @@ export const deleteItemThunk = createAsyncThunk(
       const list = state.list.lists.find(l => l.id === payload.listId)
       if (!list) return thunkAPI.rejectWithValue('List not found')
       const updatedList = { ...list, items: list.items.filter(i => i.id !== payload.itemId) }
-      const response = await axios.put(`http://localhost:3000/list/${payload.listId}`, updatedList)
+      const response = await axios.put(`${apiUrl}/${payload.listId}`, updatedList)
       return response.data
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message || 'Failed to delete item')
@@ -141,7 +143,7 @@ export const toggleItemThunk = createAsyncThunk(
         i.id === payload.itemId ? { ...i, checked: !i.checked } : i
       )
       const updatedList = { ...list, items: updatedItems }
-      const response = await axios.put(`http://localhost:3000/list/${payload.listId}`, updatedList)
+      const response = await axios.put(`${apiUrl}/${payload.listId}`, updatedList)
       return response.data
     } catch (err: any) {
       return thunkAPI.rejectWithValue(err.message || 'Failed to toggle item')
@@ -193,7 +195,8 @@ export const listSlice = createSlice({
       state.lists = state.lists.filter(list => list.id !== action.payload)
     })
 
-  // Item thunks — all return the updated list, so replace it in state
+  // Item thunks  all return the updated list, so i  replace it in state
+
   const replaceList = (state: ListState, action: { payload: ShoppingList }) => {
     const index = state.lists.findIndex(l => l.id === action.payload.id)
     if (index !== -1) state.lists[index] = action.payload

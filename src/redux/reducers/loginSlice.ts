@@ -3,6 +3,8 @@ import type { User } from './signUpSlice'
 import axios from 'axios'
 import bcrypt from 'bcryptjs'
 
+const apiUrl="http://localhost:3000/users";
+
 export interface AuthState {
   currentUser: User | null
   isLoggedIn: boolean
@@ -26,7 +28,7 @@ export const loginUser = createAsyncThunk(
     try {
 
       const emailCheck = await axios.get<User[]>(
-        `http://localhost:3000/users?email=${credentials.email}`
+        `${apiUrl}?email=${credentials.email}`
       )
 
       if (emailCheck.data.length === 0) {
@@ -52,7 +54,7 @@ export const fetchUsers = createAsyncThunk (
   'user/fetchAll',
   async  (_, thunkAPI) => {
      try {
-      const response = await axios.get('http://localhost:3000/users')
+      const response = await axios.get(apiUrl)
       return response.data
      }
      catch (error: any){
@@ -66,7 +68,7 @@ export const editUserThunk = createAsyncThunk(
   async (userData: User, thunkAPI) => {
     try {
       const response = await axios.put(
-        `http://localhost:3000/users/${userData.id}`,  userData )
+        `${apiUrl}/${userData.id}`,  userData )
       return response.data
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message || 'Failed to update user')

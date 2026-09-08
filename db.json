@@ -79,6 +79,14 @@
       "password": "$2b$10$.DGPGpuVbuA2QE1/rtrd4.S9ThRUzwtgDxyDjz9uuRqJrsLvmFcGy",
       "cellNumber": "0845884210",
       "id": "RrWAHdnlOmA"
+    },
+    {
+      "name": "Sam",
+      "surname": "Sbongo",
+      "email": "samkhathi@gmail.com",
+      "password": "$2b$10$CyXzAhb3ZipDU8JA7toXCeWXpI264RKd8T1daeiGmehQkSV3dmIQu",
+      "cellNumber": "0712478984",
+      "id": "Ndo36LrPO7o"
     }
   ],
   "list": [
@@ -283,11 +291,11 @@
         {
           "id": "1788786105781",
           "name": "Onions",
-          "quantity": 3,
+          "quantity": 5,
           "category": "Vegetables",
           "notes": "m",
           "image": "",
-          "checked": false,
+          "checked": true,
           "createdAt": "2026-09-07T13:01:45.781Z"
         },
         {
@@ -297,7 +305,7 @@
           "category": "Snacks",
           "notes": "mn",
           "image": "",
-          "checked": false,
+          "checked": true,
           "createdAt": "2026-09-07T13:02:01.937Z"
         }
       ],
@@ -309,18 +317,66 @@
       "name": "Month End",
       "notes": "",
       "category": "Groceries",
-      "items": [],
+      "items": [
+        {
+          "id": "1788868148616",
+          "name": "Milk",
+          "quantity": 1,
+          "category": "Dairy",
+          "notes": "Shoprite",
+          "image": "",
+          "checked": false,
+          "createdAt": "2026-09-08T11:49:08.616Z"
+        },
+        {
+          "id": "1788868161457",
+          "name": "Beef",
+          "quantity": 2,
+          "category": "Meat",
+          "notes": "Birthday List",
+          "image": "",
+          "checked": false,
+          "createdAt": "2026-09-08T11:49:21.457Z"
+        }
+      ],
       "createdAt": "2026-08-31T09:05:50.513Z",
       "id": "oN_wTPK_pCw"
     },
     {
+      "userId": "Ndo36LrPO7o",
+      "name": "Neliswa 25th Birthday",
+      "notes": "",
+      "category": "Birthdays",
+      "items": [],
+      "createdAt": "2026-09-08T08:56:58.584Z",
+      "id": "hV6AdJPtK60"
+    },
+    {
       "userId": "RrWAHdnlOmA",
-      "name": "Mqasho Shopping List",
-      "notes": "Buy at shoprite , Edendale mall",
+      "name": "Braai supplies",
+      "notes": "",
       "category": "Other",
       "items": [],
-      "createdAt": "2026-08-31T09:08:51.817Z",
-      "id": "QvkWPC2Zkg4"
+      "createdAt": "2026-09-08T11:50:36.536Z",
+      "id": "6PfKhPcUkK0"
+    },
+    {
+      "userId": "RrWAHdnlOmA",
+      "name": "Braai supplies",
+      "notes": "",
+      "category": "Groceries",
+      "items": [],
+      "createdAt": "2026-09-08T11:50:45.137Z",
+      "id": "D0aMzYbffgo"
+    },
+    {
+      "userId": "RrWAHdnlOmA",
+      "name": "X",
+      "notes": "",
+      "category": "Groceries",
+      "items": [],
+      "createdAt": "2026-09-08T11:51:02.888Z",
+      "id": "UXRKpQZHNt4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
