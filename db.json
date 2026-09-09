@@ -283,66 +283,6 @@
       "id": "hgkeued-uZk"
     },
     {
-      "userId": "RrWAHdnlOmA",
-      "name": "Weakly Groceries",
-      "notes": "",
-      "category": "Groceries",
-      "items": [
-        {
-          "id": "1788786105781",
-          "name": "Onions",
-          "quantity": 5,
-          "category": "Vegetables",
-          "notes": "m",
-          "image": "",
-          "checked": true,
-          "createdAt": "2026-09-07T13:01:45.781Z"
-        },
-        {
-          "id": "1788786121937",
-          "name": "Doritos",
-          "quantity": 1,
-          "category": "Snacks",
-          "notes": "mn",
-          "image": "",
-          "checked": true,
-          "createdAt": "2026-09-07T13:02:01.937Z"
-        }
-      ],
-      "createdAt": "2026-08-31T09:05:22.689Z",
-      "id": "7Y8oR6VteVA"
-    },
-    {
-      "userId": "RrWAHdnlOmA",
-      "name": "Month End",
-      "notes": "",
-      "category": "Groceries",
-      "items": [
-        {
-          "id": "1788868148616",
-          "name": "Milk",
-          "quantity": 1,
-          "category": "Dairy",
-          "notes": "Shoprite",
-          "image": "",
-          "checked": false,
-          "createdAt": "2026-09-08T11:49:08.616Z"
-        },
-        {
-          "id": "1788868161457",
-          "name": "Beef",
-          "quantity": 2,
-          "category": "Meat",
-          "notes": "Birthday List",
-          "image": "",
-          "checked": false,
-          "createdAt": "2026-09-08T11:49:21.457Z"
-        }
-      ],
-      "createdAt": "2026-08-31T09:05:50.513Z",
-      "id": "oN_wTPK_pCw"
-    },
-    {
       "userId": "Ndo36LrPO7o",
       "name": "Neliswa 25th Birthday",
       "notes": "",
@@ -353,30 +293,12 @@
     },
     {
       "userId": "RrWAHdnlOmA",
-      "name": "Braai supplies",
-      "notes": "",
-      "category": "Other",
-      "items": [],
-      "createdAt": "2026-09-08T11:50:36.536Z",
-      "id": "6PfKhPcUkK0"
-    },
-    {
-      "userId": "RrWAHdnlOmA",
-      "name": "Braai supplies",
+      "name": "Weakly Groceries",
       "notes": "",
       "category": "Groceries",
       "items": [],
-      "createdAt": "2026-09-08T11:50:45.137Z",
-      "id": "D0aMzYbffgo"
-    },
-    {
-      "userId": "RrWAHdnlOmA",
-      "name": "X",
-      "notes": "",
-      "category": "Groceries",
-      "items": [],
-      "createdAt": "2026-09-08T11:51:02.888Z",
-      "id": "UXRKpQZHNt4"
+      "createdAt": "2026-09-09T09:17:18.682Z",
+      "id": "3evOTqrdBSg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
